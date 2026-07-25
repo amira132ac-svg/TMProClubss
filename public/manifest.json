@@ -1,0 +1,38 @@
+{
+  "name": "SUPERLEAGUE RAGNAROK",
+  "short_name": "RAGNAROK",
+  "description": "Viking Football League Standings, Fixtures & Stats for Season 4",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2ECE3",
+  "theme_color": "#8E2D2D",
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Groups & Standings",
+      "url": "/?tab=groups",
+      "description": "View Group Standings"
+    },
+    {
+      "name": "Fixtures & Results",
+      "url": "/?tab=fixtures",
+      "description": "View Fixtures and Results"
+    },
+    {
+      "name": "Player Stats",
+      "url": "/?tab=stats",
+      "description": "View Top Scorers & Playmakers"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SUPERLEAGUE RAGNAROK",
+  "description": "SUPERLEAGUE RAGNAROK - Season 4: The Dawn of War football league with groups, standings, statistics, and fixtures.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
