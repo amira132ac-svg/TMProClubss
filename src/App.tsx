@@ -9,7 +9,6 @@ import { StatsTab } from './components/StatsTab';
 import { FixturesTab } from './components/FixturesTab';
 import { TeamCompareTab } from './components/TeamCompareTab';
 import { PredictionsTab } from './components/PredictionsTab';
-import { VoiceLoungesTab } from './components/VoiceLoungesTab';
 import { ShareBox } from './components/ShareBox';
 import { SponsorFooter } from './components/SponsorFooter';
 import { InstallModal } from './components/InstallModal';
@@ -136,7 +135,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-parchment text-[#E2E8F0] font-inter relative overflow-x-hidden selection:bg-[#38BDF8] selection:text-[#0B132B] flex flex-col justify-between ${isShaking ? 'animate-screen-shake' : ''}`}>
+    <div className={`min-h-screen bg-gradient-to-br from-[#060A21] via-[#0B1238] to-[#080D2B] text-slate-100 font-vazir relative overflow-x-hidden selection:bg-[#38BDF8] selection:text-[#060A21] flex flex-col justify-between ${isShaking ? 'animate-screen-shake' : ''}`}>
       
       {/* Background Particle Embers */}
       <EmbersCanvas />
@@ -159,7 +158,7 @@ export default function App() {
         />
 
         {/* Tab View Content */}
-        <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-4">
+        <main className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 py-4">
           {activeTab === 'groups' && (
             <GroupsTab
               teams={teams}
@@ -195,10 +194,6 @@ export default function App() {
             <PredictionsTab
               matches={matches}
             />
-          )}
-
-          {activeTab === 'lounges' && (
-            <VoiceLoungesTab />
           )}
         </main>
 

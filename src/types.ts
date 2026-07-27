@@ -47,18 +47,4 @@ export interface Match {
   day?: 'Sunday' | 'Monday' | 'Tuesday' | 'TBD';
 }
 
-export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare' | 'predictions' | 'lounges';
-
-export interface VoiceLounge {
-  id: string;
-  name: string;
-  description: string;
-  category: 'Match Chat' | 'Team Tactics' | 'Viking Tavern' | 'General Chill';
-  activeCount: number;
-  maxCapacity: number;
-  icon: string;
-  hostName: string;
-  meetUrl?: string;
-  tags: string[];
-  isGoogleMeet?: boolean;
-}
+export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare' | 'predictions';

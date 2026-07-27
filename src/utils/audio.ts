@@ -14,136 +14,15 @@ export interface MusicTrack {
 
 export const SOUNDCLOUD_TRACKS: MusicTrack[] = [
   {
-    id: 'sc-1',
-    title: 'SoundCloud Vibe #1',
-    artist: 'SoundCloud Artist',
-    duration: '3:30',
-    durationSeconds: 210,
-    coverBg: 'from-amber-500 to-orange-800',
-    bpm: 110,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/gSV20Bx8wtKwLM33O9'
-  },
-  {
-    id: 'sc-2',
-    title: 'SoundCloud Vibe #2',
-    artist: 'SoundCloud Artist',
-    duration: '3:15',
-    durationSeconds: 195,
-    coverBg: 'from-purple-600 to-indigo-900',
-    bpm: 105,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/zD4PCaWX3bntOx7lkF'
-  },
-  {
-    id: 'sc-3',
-    title: 'SoundCloud Vibe #3',
-    artist: 'SoundCloud Artist',
-    duration: '3:45',
-    durationSeconds: 225,
-    coverBg: 'from-cyan-600 to-blue-900',
-    bpm: 120,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/8p1cdf0WEEgpSzi8TV'
-  },
-  {
-    id: 'sc-4',
-    title: 'SoundCloud Vibe #4',
-    artist: 'SoundCloud Artist',
-    duration: '2:50',
-    durationSeconds: 170,
-    coverBg: 'from-rose-600 to-pink-900',
-    bpm: 115,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/JdTs9hDPTqvRJNVbsj'
-  },
-  {
-    id: 'sc-5',
-    title: 'SoundCloud Vibe #5',
-    artist: 'SoundCloud Artist',
-    duration: '3:10',
-    durationSeconds: 190,
-    coverBg: 'from-emerald-600 to-teal-900',
-    bpm: 100,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/2NB48eXHWQ46ffAHUI'
-  },
-  {
-    id: 'sc-6',
-    title: 'SoundCloud Vibe #6',
-    artist: 'SoundCloud Artist',
-    duration: '4:00',
-    durationSeconds: 240,
-    coverBg: 'from-sky-600 to-indigo-950',
-    bpm: 128,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/F6u56fABcxqPDB4Wc5'
-  },
-  {
-    id: 'sc-7',
-    title: 'SoundCloud Vibe #7',
-    artist: 'SoundCloud Artist',
-    duration: '3:20',
-    durationSeconds: 200,
-    coverBg: 'from-fuchsia-600 to-purple-950',
-    bpm: 108,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/FQ9BPLHrM9IC0cCy5l'
-  },
-  {
-    id: 'sc-8',
-    title: 'SoundCloud Vibe #8',
-    artist: 'SoundCloud Artist',
-    duration: '3:35',
-    durationSeconds: 215,
-    coverBg: 'from-orange-600 to-red-950',
-    bpm: 112,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/Lpfu5YW9b5WYCOrdYv'
-  },
-  {
-    id: 'sc-9',
-    title: 'SoundCloud Vibe #9',
-    artist: 'SoundCloud Artist',
-    duration: '3:05',
-    durationSeconds: 185,
-    coverBg: 'from-teal-600 to-cyan-950',
-    bpm: 102,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/xkf9hHuYTkhTlSROrL'
-  },
-  {
-    id: 'sc-10',
-    title: 'SoundCloud Vibe #10',
-    artist: 'SoundCloud Artist',
-    duration: '3:50',
-    durationSeconds: 230,
-    coverBg: 'from-blue-600 to-slate-950',
-    bpm: 118,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/jSxux5tVHiClSvLXs5'
-  },
-  {
-    id: 'sc-11',
-    title: 'SoundCloud Vibe #11',
-    artist: 'SoundCloud Artist',
-    duration: '3:25',
-    durationSeconds: 205,
-    coverBg: 'from-amber-600 to-rose-950',
-    bpm: 122,
-    genre: 'SoundCloud',
-    audioUrl: 'https://on.soundcloud.com/5f2S8SxrPtRxc6E41W'
-  },
-  {
-    id: 'radio-ir-music',
-    title: 'IR-Music Live Radio 📻',
-    artist: 'ir-music.ir',
-    duration: 'LIVE',
-    durationSeconds: 9999,
-    coverBg: 'from-rose-600 via-amber-600 to-indigo-900',
-    bpm: 120,
-    genre: 'Live Radio',
-    audioUrl: 'https://stream.ir-music.ir/live'
+    id: 'up-stuff-we-did',
+    title: 'Stuff We Did',
+    artist: 'Michael Giacchino',
+    duration: '2:13',
+    durationSeconds: 133,
+    coverBg: 'from-[#1E2960] to-[#0A0E2A]',
+    bpm: 90,
+    genre: 'Soundtrack',
+    audioUrl: 'https://dl.musicdel.ir/Music/1401/11/michael_giacchino_stuff_we_did.mp3'
   }
 ];
 
@@ -153,7 +32,7 @@ class AudioSynth {
   private ctx: AudioContext | null = null;
   private isPlaying = false;
   private timer: any = null;
-  private currentTrackIndex = Math.floor(Math.random() * (SOUNDCLOUD_TRACKS.length - 1)); // Random song on load
+  private currentTrackIndex = 0;
   private currentElapsedSeconds = 0;
   private playbackInterval: any = null;
   private masterGain: GainNode | null = null;

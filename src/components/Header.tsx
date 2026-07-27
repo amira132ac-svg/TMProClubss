@@ -1,5 +1,5 @@
 import React from 'react';
-import { Smartphone, Send, ShieldAlert, Volume2, VolumeX, Shield } from 'lucide-react';
+import { Smartphone, Send, ShieldAlert, Volume2, VolumeX, Shield, Sparkles } from 'lucide-react';
 import { soundManager } from '../utils/audio';
 
 interface HeaderProps {
@@ -20,42 +20,44 @@ export const Header: React.FC<HeaderProps> = ({
   const telegramUrl = 'https://t.me/SUPERLEAGUE_RAGNAROK';
 
   return (
-    <header className="relative z-10 pt-6 pb-4 px-4 sm:px-6 max-w-7xl mx-auto border-b border-[#38BDF8]/20">
+    <header className="relative z-10 pt-5 pb-3 px-3 sm:px-6 max-w-7xl mx-auto border-b border-[#38BDF8]/20">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Title & Emblem */}
-        <div className="flex items-center gap-3.5 text-center md:text-left">
-          <div className="w-12 h-12 rounded-xl bg-[#111D3A] border-2 border-[#38BDF8] shadow-[0_0_15px_rgba(56,189,248,0.3)] flex items-center justify-center text-[#38BDF8] shrink-0">
-            <Shield className="w-6 h-6 stroke-[2.2]" />
+        <div className="flex items-center gap-3 text-center md:text-right">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1E2E6E] to-[#0D163D] border border-[#38BDF8]/40 shadow-[0_0_20px_rgba(56,189,248,0.2)] flex items-center justify-center text-[#38BDF8] shrink-0">
+            <Shield className="w-7 h-7 stroke-[2]" />
           </div>
           <div>
-            <h1 className="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#FFFFFF]">
-              SUPERLEAGUE <span className="text-[#38BDF8]">•</span> <span className="text-[#F59E0B]">RAGNAROK</span>
+            <h1 className="font-vazir text-2xl sm:text-3xl font-black tracking-wide text-white flex items-center justify-center md:justify-start gap-2">
+              <span>SUPERLEAGUE</span>
+              <span className="text-[#38BDF8]">•</span>
+              <span className="text-[#F59E0B]">RAGNAROK</span>
             </h1>
-            <p className="font-inter text-xs sm:text-sm text-[#94A3B8] tracking-widest font-bold flex items-center justify-center md:justify-start gap-2 mt-0.5">
-              <span className="text-[#38BDF8] font-orbitron">SEASON 4</span>
-              <span className="text-[#F59E0B]">•</span>
-              <span className="uppercase text-[#E2E8F0]">The Dawn of War</span>
+            <p className="font-vazir text-xs text-[#94A3B8] font-medium flex items-center justify-center md:justify-start gap-2 mt-0.5">
+              <span className="text-[#F59E0B] font-bold">فصل ۴</span>
+              <span className="text-[#38BDF8]">•</span>
+              <span className="text-slate-200 font-semibold">سوپر لیگ حرفه‌ای - کاپ قهرمانان</span>
             </p>
           </div>
         </div>
 
         {/* Right Controls */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
           {/* Sound Toggle */}
           <button
             onClick={() => {
               soundManager.playUiClick();
               onToggleSound();
             }}
-            title={soundEnabled ? 'Disable Music Audio' : 'Enable Music Audio'}
+            title={soundEnabled ? 'غیرفعال‌سازی موزیک' : 'فعال‌سازی موزیک'}
             className={`p-2.5 rounded-xl border transition-all text-xs font-semibold flex items-center gap-1.5 ${
               soundEnabled
-                ? 'bg-[#0284C7] border-[#38BDF8] text-[#FFFFFF] shadow-[0_0_12px_rgba(56,189,248,0.4)]'
-                : 'bg-[#111D3A] border-[#38BDF8]/30 text-[#94A3B8] hover:border-[#38BDF8] hover:text-[#E2E8F0]'
+                ? 'bg-[#1B2960] border-[#38BDF8] text-[#38BDF8] shadow-[0_0_12px_rgba(56,189,248,0.3)]'
+                : 'bg-[#10173A] border-[#38BDF8]/20 text-[#94A3B8] hover:border-[#38BDF8]/50 hover:text-white'
             }`}
           >
-            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#FFFFFF]" /> : <VolumeX className="w-4 h-4 text-[#94A3B8]" />}
+            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#38BDF8]" /> : <VolumeX className="w-4 h-4 text-[#94A3B8]" />}
           </button>
 
           {/* Admin / Manager Mode Toggle */}
@@ -64,15 +66,15 @@ export const Header: React.FC<HeaderProps> = ({
               soundManager.playUiClick();
               onToggleAdminMode();
             }}
-            title="Toggle Match Score Editor Mode"
+            title="حالت ویرایش نتایج مسابقات"
             className={`px-3 py-2 rounded-xl border transition-all text-xs font-semibold flex items-center gap-1.5 ${
               isAdminMode
-                ? 'bg-[#F59E0B] border-[#F59E0B] text-black font-bold shadow-md'
-                : 'bg-[#111D3A] border-[#38BDF8]/30 text-[#E2E8F0] hover:border-[#F59E0B]'
+                ? 'bg-[#F59E0B] border-[#F59E0B] text-[#0A0E2A] font-extrabold shadow-md'
+                : 'bg-[#10173A] border-[#38BDF8]/25 text-white hover:border-[#F59E0B]/50'
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5 text-[#F59E0B]" />
-            <span>{isAdminMode ? 'Editor Active' : 'Score Editor'}</span>
+            <span>{isAdminMode ? 'ویرایشگر فعال' : 'ویرایش نتایج'}</span>
           </button>
 
           {/* Install App Button */}
@@ -81,10 +83,10 @@ export const Header: React.FC<HeaderProps> = ({
               soundManager.playUiClick();
               onOpenInstallModal();
             }}
-            className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] hover:from-[#0369A1] hover:to-[#1E293B] text-white font-inter text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] border border-[#38BDF8]/40"
+            className="px-3.5 py-2 rounded-xl bg-[#10173A] border border-[#38BDF8]/30 hover:border-[#38BDF8] text-white font-vazir text-xs font-semibold flex items-center gap-2 shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             <Smartphone className="w-4 h-4 text-[#38BDF8]" />
-            <span>Install App</span>
+            <span>نصب اپلیکیشن</span>
           </button>
 
           {/* Telegram Channel Button */}
@@ -93,15 +95,16 @@ export const Header: React.FC<HeaderProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => soundManager.playUiClick()}
-            className="px-3.5 py-2 rounded-xl bg-[#111D3A] border border-[#38BDF8]/30 hover:border-[#38BDF8] text-[#E2E8F0] font-inter text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all shadow-sm"
+            className="px-3.5 py-2 rounded-xl bg-[#10173A] border border-[#38BDF8]/20 hover:border-[#38BDF8]/60 text-white font-vazir text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
           >
-            <Send className="w-4 h-4 text-[#38BDF8]" />
-            <span>Telegram Channel</span>
+            <Send className="w-4 h-4 text-sky-400" />
+            <span>کانال تلگرام</span>
           </a>
 
           {/* Season Badge */}
-          <div className="px-3 py-2 rounded-xl bg-[#111D3A] border border-[#F59E0B] text-[#F59E0B] font-orbitron text-xs font-bold flex items-center gap-1.5 shadow-sm">
-            <span>SEASON 4</span>
+          <div className="px-3 py-2 rounded-xl bg-gradient-to-r from-[#1E2E6E] to-[#10173A] border border-[#F59E0B]/40 text-[#F59E0B] font-vazir text-xs font-bold flex items-center gap-1.5 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
+            <span>فصل ۴</span>
           </div>
         </div>
 
@@ -109,3 +112,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

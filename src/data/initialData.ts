@@ -461,7 +461,7 @@ export const initialTeams: Team[] = [
 export const initialMatches: Match[] = [
   // ================= SUNDAY MATCHES (FINISHED RESULTS) =================
   {
-    id: 'm-a3',
+    id: 'm-sun-1',
     group: 'A',
     round: 1,
     homeTeamId: 'team-a4',
@@ -476,7 +476,7 @@ export const initialMatches: Match[] = [
     time: 'FT'
   },
   {
-    id: 'm-b4',
+    id: 'm-sun-2',
     group: 'B',
     round: 1,
     homeTeamId: 'team-b1',
@@ -491,7 +491,7 @@ export const initialMatches: Match[] = [
     time: 'FT'
   },
   {
-    id: 'm-c1',
+    id: 'm-sun-3',
     group: 'C',
     round: 1,
     homeTeamId: 'team-c7',
@@ -506,7 +506,7 @@ export const initialMatches: Match[] = [
     time: 'FT'
   },
   {
-    id: 'm-b2',
+    id: 'm-sun-4',
     group: 'B',
     round: 1,
     homeTeamId: 'team-b6',
@@ -521,39 +521,9 @@ export const initialMatches: Match[] = [
     time: 'FT'
   },
 
-  // ================= MONDAY MATCHES (UPCOMING) =================
+  // ================= MONDAY MATCHES =================
   {
-    id: 'm-a2',
-    group: 'A',
-    round: 1,
-    homeTeamId: 'team-a3',
-    awayTeamId: 'team-a6',
-    homeTeamName: 'AFTABESAZI',
-    awayTeamName: 'ULTIMO BAILE',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Monday',
-    day: 'Monday',
-    time: '12:30'
-  },
-  {
-    id: 'm-a4',
-    group: 'A',
-    round: 1,
-    homeTeamId: 'team-a1',
-    awayTeamId: 'team-a7',
-    homeTeamName: 'PERSIANEMPIRE',
-    awayTeamName: 'TITANS',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Monday',
-    day: 'Monday',
-    time: '23:30'
-  },
-  {
-    id: 'm-b6',
+    id: 'm-mon-1',
     group: 'B',
     round: 1,
     homeTeamId: 'team-b4',
@@ -568,7 +538,22 @@ export const initialMatches: Match[] = [
     time: '23:00'
   },
   {
-    id: 'm-b5',
+    id: 'm-mon-2',
+    group: 'A',
+    round: 1,
+    homeTeamId: 'team-a1',
+    awayTeamId: 'team-a7',
+    homeTeamName: 'PERSIANEMPIRE',
+    awayTeamName: 'TITANS',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Monday',
+    day: 'Monday',
+    time: '23:00'
+  },
+  {
+    id: 'm-mon-3',
     group: 'B',
     round: 1,
     homeTeamId: 'team-b2',
@@ -583,22 +568,7 @@ export const initialMatches: Match[] = [
     time: '23:30'
   },
   {
-    id: 'm-c3',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c4',
-    awayTeamId: 'team-c5',
-    homeTeamName: 'TAPE',
-    awayTeamName: 'BAY CLUB',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Monday',
-    day: 'Monday',
-    time: '00:00'
-  },
-  {
-    id: 'm-c5',
+    id: 'm-mon-4',
     group: 'C',
     round: 1,
     homeTeamId: 'team-c2',
@@ -613,7 +583,7 @@ export const initialMatches: Match[] = [
     time: '23:30'
   },
   {
-    id: 'm-d6',
+    id: 'm-mon-5',
     group: 'D',
     round: 1,
     homeTeamId: 'team-d4',
@@ -627,25 +597,55 @@ export const initialMatches: Match[] = [
     day: 'Monday',
     time: '23:30'
   },
-
-  // ================= TUESDAY MATCHES (UPCOMING) =================
   {
-    id: 'm-a1',
-    group: 'A',
+    id: 'm-mon-6',
+    group: 'C',
     round: 1,
-    homeTeamId: 'team-a2',
-    awayTeamId: 'team-a7',
-    homeTeamName: 'GORGALI FC',
-    awayTeamName: 'TITANS',
+    homeTeamId: 'team-c4',
+    awayTeamId: 'team-c5',
+    homeTeamName: 'TAPE',
+    awayTeamName: 'BAY CLUB',
     homeScore: null,
     awayScore: null,
     status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '00:15'
+    date: 'Monday',
+    day: 'Monday',
+    time: '00:00'
   },
   {
-    id: 'm-a6',
+    id: 'm-mon-7',
+    group: 'D',
+    round: 1,
+    homeTeamId: 'team-d2',
+    awayTeamId: 'team-d7',
+    homeTeamName: 'YOUNG WIZARD',
+    awayTeamName: 'RMP FC',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Monday',
+    day: 'Monday',
+    time: '00:00'
+  },
+  {
+    id: 'm-mon-8',
+    group: 'A',
+    round: 1,
+    homeTeamId: 'team-a3',
+    awayTeamId: 'team-a6',
+    homeTeamName: 'AFTABESAZI',
+    awayTeamName: 'ULTIMO BAILE',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Monday',
+    day: 'Monday',
+    time: '00:30'
+  },
+
+  // ================= TUESDAY MATCHES =================
+  {
+    id: 'm-tue-1',
     group: 'A',
     round: 1,
     homeTeamId: 'team-a3',
@@ -657,25 +657,10 @@ export const initialMatches: Match[] = [
     status: 'upcoming',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '21:00'
+    time: '23:00'
   },
   {
-    id: 'm-b3',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b5',
-    awayTeamId: 'team-b4',
-    homeTeamName: 'A R Y A',
-    awayTeamName: 'DARYASALAR',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '12:30'
-  },
-  {
-    id: 'm-c2',
+    id: 'm-tue-2',
     group: 'C',
     round: 1,
     homeTeamId: 'team-c6',
@@ -690,22 +675,7 @@ export const initialMatches: Match[] = [
     time: '23:00'
   },
   {
-    id: 'm-c6',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c3',
-    awayTeamId: 'team-c4',
-    homeTeamName: 'SOROUSHFC',
-    awayTeamName: 'TAPE',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '23:40'
-  },
-  {
-    id: 'm-d2',
+    id: 'm-tue-3',
     group: 'D',
     round: 1,
     homeTeamId: 'team-d3',
@@ -720,7 +690,52 @@ export const initialMatches: Match[] = [
     time: '23:15'
   },
   {
-    id: 'm-d5',
+    id: 'm-tue-4',
+    group: 'B',
+    round: 1,
+    homeTeamId: 'team-b2',
+    awayTeamId: 'team-b7',
+    homeTeamName: 'SPIRITS',
+    awayTeamName: 'BELAAD',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: '23:30'
+  },
+  {
+    id: 'm-tue-5',
+    group: 'C',
+    round: 1,
+    homeTeamId: 'team-c4',
+    awayTeamId: 'team-c3',
+    homeTeamName: 'TAPE',
+    awayTeamName: 'SOROUSHFC',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: '23:40'
+  },
+  {
+    id: 'm-tue-6',
+    group: 'C',
+    round: 1,
+    homeTeamId: 'team-c7',
+    awayTeamId: 'team-c1',
+    homeTeamName: 'AZADI',
+    awayTeamName: 'PERSIANGULF',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: '23:59'
+  },
+  {
+    id: 'm-tue-7',
     group: 'D',
     round: 1,
     homeTeamId: 'team-d2',
@@ -735,7 +750,37 @@ export const initialMatches: Match[] = [
     time: '00:00'
   },
   {
-    id: 'm-d3',
+    id: 'm-tue-8',
+    group: 'A',
+    round: 1,
+    homeTeamId: 'team-a2',
+    awayTeamId: 'team-a5',
+    homeTeamName: 'GORGALI FC',
+    awayTeamName: 'CHAEE KHORAN',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: '00:00'
+  },
+  {
+    id: 'm-tue-9',
+    group: 'A',
+    round: 1,
+    homeTeamId: 'team-a7',
+    awayTeamId: 'team-a2',
+    homeTeamName: 'TITANS',
+    awayTeamName: 'GORGALI FC',
+    homeScore: null,
+    awayScore: null,
+    status: 'upcoming',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: '00:15'
+  },
+  {
+    id: 'm-tue-10',
     group: 'D',
     round: 1,
     homeTeamId: 'team-d5',
@@ -747,84 +792,22 @@ export const initialMatches: Match[] = [
     status: 'upcoming',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '12:30'
-  },
-
-  // ================= TBD MATCHES =================
-  {
-    id: 'm-a5',
-    group: 'A',
-    round: 2,
-    homeTeamId: 'team-a2',
-    awayTeamId: 'team-a5',
-    homeTeamName: 'GORGALI FC',
-    awayTeamName: 'CHAEE KHORAN',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'TBD',
-    day: 'TBD',
-    time: 'TBA'
+    time: '00:30'
   },
   {
-    id: 'm-b1',
+    id: 'm-tue-11',
     group: 'B',
     round: 1,
-    homeTeamId: 'team-b2',
-    awayTeamId: 'team-b7',
-    homeTeamName: 'SPIRITS',
-    awayTeamName: 'BELAAD',
+    homeTeamId: 'team-b5',
+    awayTeamId: 'team-b4',
+    homeTeamName: 'A R Y A',
+    awayTeamName: 'DARYASALAR',
     homeScore: null,
     awayScore: null,
     status: 'upcoming',
-    date: 'TBD',
-    day: 'TBD',
-    time: 'TBA'
-  },
-  {
-    id: 'm-c4',
-    group: 'C',
-    round: 2,
-    homeTeamId: 'team-c1',
-    awayTeamId: 'team-c7',
-    homeTeamName: 'PERSIANGULF',
-    awayTeamName: 'AZADI',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'TBD',
-    day: 'TBD',
-    time: 'TBA'
-  },
-  {
-    id: 'm-d1',
-    group: 'D',
-    round: 1,
-    homeTeamId: 'team-d2',
-    awayTeamId: 'team-d7',
-    homeTeamName: 'YOUNG WIZARD',
-    awayTeamName: 'RMP FC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'TBD',
-    day: 'TBD',
-    time: 'TBA'
-  },
-  {
-    id: 'm-d4',
-    group: 'D',
-    round: 2,
-    homeTeamId: 'team-d1',
-    awayTeamId: 'team-d7',
-    homeTeamName: 'KAKASIAH',
-    awayTeamName: 'RMP FC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'TBD',
-    day: 'TBD',
-    time: 'TBA'
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: '00:30'
   }
 ];
 
