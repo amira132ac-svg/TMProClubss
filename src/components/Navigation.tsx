@@ -9,7 +9,7 @@ interface NavigationProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
-  const tabs: { id: ActiveTab; label: string; icon: React.ReactNode; isNew?: boolean }[] = [
+  const tabs: { id: ActiveTab; label: string; icon: React.ReactNode }[] = [
     {
       id: 'groups',
       label: 'GROUPS',
@@ -28,14 +28,12 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
     {
       id: 'compare',
       label: 'COMPARE',
-      icon: <Swords className="w-4 h-4 text-[#F59E0B]" />,
-      isNew: true
+      icon: <Swords className="w-4 h-4 text-[#F59E0B]" />
     },
     {
       id: 'predictions',
       label: 'PREDICTIONS',
-      icon: <Trophy className="w-4 h-4 text-emerald-400" />,
-      isNew: true
+      icon: <Trophy className="w-4 h-4 text-emerald-400" />
     },
     {
       id: 'lounges',
@@ -68,11 +66,6 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
                 {tab.icon}
               </span>
               <span>{tab.label}</span>
-              {tab.isNew && !isActive && (
-                <span className="ml-1 px-1.5 py-0.5 rounded text-[9px] font-orbitron font-extrabold bg-[#0284C7] text-white">
-                  LIVE
-                </span>
-              )}
               {isActive && (
                 <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-[#38BDF8] rounded-full shadow-[0_0_8px_#38BDF8]" />
               )}

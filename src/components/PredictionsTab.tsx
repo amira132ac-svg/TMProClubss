@@ -274,8 +274,6 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
               {matches.map(m => {
                 const pred = userPredictions[m.id] || { home: 0, away: 0 };
                 const isFinished = m.status === 'finished';
-                const isLive = m.status === 'live';
-                const isLockedMatch = isFinished || isLive;
 
                 let pointBadge = null;
                 if (isFinished && m.homeScore !== null && m.awayScore !== null) {
@@ -300,17 +298,17 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
                       <span className="w-24 text-left truncate">{m.awayTeamName}</span>
                     </div>
 
-                    {/* Inputs - Disabled if match started/finished or no locked username */}
+                    {/* Inputs - Disabled if match finished or no locked username */}
                     <div className="flex items-center gap-2 shrink-0">
                       <input
                         type="number"
                         min="0"
                         max="20"
-                        disabled={isLockedMatch || !lockedUsername}
+                        disabled={isFinished || !lockedUsername}
                         value={pred.home}
                         onChange={(e) => handleScoreChange(m.id, 'home', parseInt(e.target.value))}
                         className={`w-12 h-9 text-center border rounded-lg text-sm font-orbitron font-extrabold focus:outline-none transition-all ${
-                          isLockedMatch
+                          isFinished
                             ? 'bg-[#0B132B]/60 text-slate-400 border-slate-700/50 cursor-not-allowed opacity-75'
                             : 'bg-[#0B132B] text-white border-[#38BDF8]/30 focus:border-[#F59E0B]'
                         }`}
@@ -320,11 +318,11 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
                         type="number"
                         min="0"
                         max="20"
-                        disabled={isLockedMatch || !lockedUsername}
+                        disabled={isFinished || !lockedUsername}
                         value={pred.away}
                         onChange={(e) => handleScoreChange(m.id, 'away', parseInt(e.target.value))}
                         className={`w-12 h-9 text-center border rounded-lg text-sm font-orbitron font-extrabold focus:outline-none transition-all ${
-                          isLockedMatch
+                          isFinished
                             ? 'bg-[#0B132B]/60 text-slate-400 border-slate-700/50 cursor-not-allowed opacity-75'
                             : 'bg-[#0B132B] text-white border-[#38BDF8]/30 focus:border-[#F59E0B]'
                         }`}
@@ -341,11 +339,6 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
                           </span>
                           {pointBadge}
                         </div>
-                      ) : isLive ? (
-                        <span className="px-2 py-1 rounded bg-rose-500/20 text-rose-400 border border-rose-500/40 text-[10px] font-orbitron font-bold flex items-center gap-1 animate-pulse">
-                          <Lock className="w-3 h-3" />
-                          <span>در حال بازی (پیش‌بینی بسته شد)</span>
-                        </span>
                       ) : (
                         <span className="px-2 py-1 rounded bg-[#0B132B] text-[#38BDF8] border border-[#38BDF8]/30 text-[10px] font-orbitron font-semibold">
                           پیش‌بینی باز است
