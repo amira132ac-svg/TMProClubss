@@ -44,9 +44,10 @@ export interface Match {
   status: MatchStatus;
   date: string;
   time: string;
+  day?: 'Sunday' | 'Monday' | 'Tuesday' | 'TBD';
 }
 
-export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'lounges';
+export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare' | 'predictions' | 'lounges';
 
 export interface VoiceLounge {
   id: string;

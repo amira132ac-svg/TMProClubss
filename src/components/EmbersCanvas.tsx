@@ -36,10 +36,11 @@ export const EmbersCanvas: React.FC = () => {
     const maxEmbers = 45;
 
     const colors = [
-      '#B99668', // Matte gold
-      '#8A6444', // Bronze brown
-      '#8E2D2D', // Crimson red
-      '#DDD0BF'  // Stone beige
+      '#38BDF8', // Electric Cyan
+      '#F59E0B', // Glowing Amber Gold
+      '#60A5FA', // Ice Blue
+      '#00F0FF', // Vivid Cyan
+      '#FBBF24'  // Gold Accent
     ];
 
     function createEmber(): Ember {

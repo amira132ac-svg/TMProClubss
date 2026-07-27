@@ -164,23 +164,23 @@ export const VoiceLoungesTab: React.FC = () => {
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 my-6 space-y-6">
       
       {/* Banner / Header Card */}
-      <div className="parchment-card parchment-card-hover rounded-xl p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+      <div className="parchment-card parchment-card-hover rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.35)] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden bg-[#111D3A] border border-[#38BDF8]/25">
         <RuneCorners />
         <div className="space-y-2 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#8E2D2D] text-[#FAF6F0] text-[10px] font-orbitron font-extrabold tracking-wider flex items-center gap-1">
-              <Radio className="w-3 h-3 animate-pulse text-[#B99668]" />
+            <span className="px-2.5 py-0.5 rounded-full bg-[#0284C7] text-white text-[10px] font-orbitron font-extrabold tracking-wider flex items-center gap-1 border border-[#38BDF8]/40 shadow-sm">
+              <Radio className="w-3 h-3 animate-pulse text-[#F59E0B]" />
               GOOGLE MEET VOICE LOUNGES
             </span>
-            <span className="px-2 py-0.5 rounded-full bg-[#EAE3D8] border border-[#DDD0BF] text-[#3A2A22] text-[10px] font-orbitron font-semibold flex items-center gap-1">
-              <CheckCircle2 className="w-3 h-3 text-[#34A853]" />
+            <span className="px-2 py-0.5 rounded-full bg-[#1C2541] border border-[#38BDF8]/20 text-[#38BDF8] text-[10px] font-orbitron font-semibold flex items-center gap-1">
+              <CheckCircle2 className="w-3 h-3 text-[#10B981]" />
               Workspace Connected
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-cinzel font-bold text-[#3A2A22] tracking-wide">
+          <h2 className="text-2xl sm:text-3xl font-cinzel font-bold text-[#FFFFFF] tracking-wide">
             Public Voice & Chill Halls
           </h2>
-          <p className="text-xs sm:text-sm text-[#8A6444] font-inter max-w-2xl">
+          <p className="text-xs sm:text-sm text-[#94A3B8] font-inter max-w-2xl">
             Gather with fellow warriors, debate match tactics, or hang out in instant public Google Meet voice spaces created for Season 4!
           </p>
         </div>
@@ -192,9 +192,9 @@ export const VoiceLoungesTab: React.FC = () => {
               soundManager.playUiClick();
               window.open('https://meet.google.com/new', '_blank');
             }}
-            className="px-4 py-2.5 rounded-lg bg-[#FAF6F0] border border-[#B99668] text-[#3A2A22] font-inter text-xs font-bold flex items-center gap-2 hover:bg-[#F2ECE3] transition-all shadow-sm"
+            className="px-4 py-2.5 rounded-xl bg-[#1C2541] border border-[#38BDF8]/30 text-[#E2E8F0] font-inter text-xs font-bold flex items-center gap-2 hover:bg-[#283655] transition-all shadow-sm"
           >
-            <ExternalLink className="w-4 h-4 text-[#8E2D2D]" />
+            <ExternalLink className="w-4 h-4 text-[#38BDF8]" />
             Instant Google Meet
           </button>
           
@@ -203,9 +203,9 @@ export const VoiceLoungesTab: React.FC = () => {
               soundManager.playUiClick();
               setIsCreatingModalOpen(true);
             }}
-            className="px-4 py-2.5 rounded-lg bg-[#8E2D2D] text-[#FAF6F0] font-inter text-xs font-bold flex items-center gap-2 hover:bg-[#722323] transition-all shadow-md border border-[#B99668]/50"
+            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] text-white font-inter text-xs font-bold flex items-center gap-2 hover:brightness-110 transition-all shadow-md border border-[#38BDF8]/50"
           >
-            <Plus className="w-4 h-4 text-[#B99668]" />
+            <Plus className="w-4 h-4 text-[#F59E0B]" />
             Create Voice Room
           </button>
         </div>
@@ -213,31 +213,31 @@ export const VoiceLoungesTab: React.FC = () => {
 
       {/* ACTIVE CONNECTED ROOM BAR (if joined) */}
       {activeRoom && (
-        <div className="bg-[#8E2D2D] text-[#FAF6F0] rounded-xl p-4 sm:p-5 shadow-lg border border-[#B99668] relative overflow-hidden animate-fade-in flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-[#1C2541] text-[#E2E8F0] rounded-2xl p-4 sm:p-5 shadow-[0_0_25px_rgba(56,189,248,0.25)] border border-[#38BDF8]/60 relative overflow-hidden animate-fade-in flex flex-col sm:flex-row items-center justify-between gap-4">
           <RuneCorners />
           <div className="flex items-center gap-4 w-full sm:w-auto">
-            <div className="w-12 h-12 rounded-full bg-[#3A2A22] border-2 border-[#B99668] flex items-center justify-center text-2xl shadow-inner shrink-0">
+            <div className="w-12 h-12 rounded-full bg-[#0B132B] border-2 border-[#38BDF8] flex items-center justify-center text-2xl shadow-inner shrink-0">
               {activeRoom.icon}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                <span className="text-[10px] font-orbitron text-[#B99668] font-bold uppercase tracking-wider">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping" />
+                <span className="text-[10px] font-orbitron text-[#38BDF8] font-bold uppercase tracking-wider">
                   Connected Live in {activeRoom.name}
                 </span>
               </div>
               <p className="text-sm font-bold font-cinzel text-white">Host: {activeRoom.hostName}</p>
-              <p className="text-xs text-[#FAF6F0]/80 font-inter">{activeRoom.activeCount + 1} Warriors in lounge</p>
+              <p className="text-xs text-[#94A3B8] font-inter">{activeRoom.activeCount + 1} Warriors in lounge</p>
             </div>
           </div>
 
           {/* Equalizer Waveform & Mute Controls */}
           <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
-            <div className="flex items-end gap-1 h-8 px-3 py-1 bg-[#3A2A22]/40 rounded-lg border border-[#B99668]/30">
+            <div className="flex items-end gap-1 h-8 px-3 py-1 bg-[#0B132B]/60 rounded-xl border border-[#38BDF8]/30">
               {waveHeights.map((h, idx) => (
                 <div
                   key={idx}
-                  className="w-1 bg-[#B99668] rounded-t transition-all duration-150"
+                  className="w-1 bg-[#38BDF8] rounded-t transition-all duration-150"
                   style={{ height: `${isMuted ? 4 : h}%` }}
                 />
               ))}
@@ -248,7 +248,7 @@ export const VoiceLoungesTab: React.FC = () => {
                 soundManager.playUiClick();
                 setIsMuted(!isMuted);
               }}
-              className={`p-2.5 rounded-lg border transition-all text-xs font-bold flex items-center gap-1.5 ${
+              className={`p-2.5 rounded-xl border transition-all text-xs font-bold flex items-center gap-1.5 ${
                 isMuted
                   ? 'bg-red-900/80 border-red-500 text-red-200'
                   : 'bg-emerald-900/80 border-emerald-500 text-emerald-100'
@@ -263,7 +263,7 @@ export const VoiceLoungesTab: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => soundManager.playUiClick()}
-              className="px-3.5 py-2.5 rounded-lg bg-[#B99668] hover:bg-[#a38054] text-[#3A2A22] font-orbitron font-extrabold text-xs flex items-center gap-1.5 shadow-md transition-all"
+              className="px-3.5 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-[#D97706] text-black font-orbitron font-extrabold text-xs flex items-center gap-1.5 shadow-md transition-all"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               Open Google Meet
@@ -271,7 +271,7 @@ export const VoiceLoungesTab: React.FC = () => {
 
             <button
               onClick={handleLeaveRoom}
-              className="px-3.5 py-2.5 rounded-lg bg-[#3A2A22] hover:bg-[#201510] text-[#FAF6F0] font-inter text-xs font-semibold border border-[#B99668]/40 transition-all flex items-center gap-1.5 shadow-sm"
+              className="px-3.5 py-2.5 rounded-xl bg-[#0B132B] hover:bg-[#111D3A] text-[#E2E8F0] font-inter text-xs font-semibold border border-[#38BDF8]/30 transition-all flex items-center gap-1.5 shadow-sm"
             >
               <span>Leave Room</span>
             </button>
@@ -288,10 +288,10 @@ export const VoiceLoungesTab: React.FC = () => {
               soundManager.playUiClick();
               setActiveCategory(cat);
             }}
-            className={`px-4 py-2 rounded-lg font-orbitron text-xs font-bold whitespace-nowrap transition-all ${
+            className={`px-4 py-2 rounded-xl font-orbitron text-xs font-bold whitespace-nowrap transition-all ${
               activeCategory === cat
-                ? 'bg-[#8E2D2D] text-[#FAF6F0] shadow-sm border border-[#B99668]/50'
-                : 'bg-[#FAF6F0] border border-[#DDD0BF] text-[#3A2A22] hover:bg-[#F2ECE3]'
+                ? 'bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] text-white shadow-md border border-[#38BDF8]/50'
+                : 'bg-[#1C2541] border border-[#38BDF8]/20 text-[#94A3B8] hover:bg-[#283655] hover:text-[#E2E8F0]'
             }`}
           >
             {cat}
@@ -307,25 +307,25 @@ export const VoiceLoungesTab: React.FC = () => {
           return (
             <div
               key={lounge.id}
-              className={`parchment-card parchment-card-hover rounded-xl p-5 shadow-sm transition-all duration-300 flex flex-col justify-between gap-4 border ${
-                isCurrentActive ? 'border-2 border-[#8E2D2D] bg-[#F8F1E5]' : 'border-[#DDD0BF]'
+              className={`parchment-card parchment-card-hover rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.35)] transition-all duration-300 flex flex-col justify-between gap-4 border bg-[#111D3A] ${
+                isCurrentActive ? 'border-2 border-[#38BDF8] shadow-[0_0_20px_rgba(56,189,248,0.3)] bg-[#152342]' : 'border-[#38BDF8]/20'
               }`}
             >
               <RuneCorners />
 
               {/* Top Row: Category & Capacity */}
               <div className="flex items-center justify-between gap-2">
-                <span className="px-2.5 py-1 rounded-md bg-[#EAE3D8] text-[#3A2A22] text-[10px] font-orbitron font-bold uppercase tracking-wider">
+                <span className="px-2.5 py-1 rounded-lg bg-[#1C2541] text-[#38BDF8] text-[10px] font-orbitron font-bold uppercase tracking-wider border border-[#38BDF8]/20">
                   {lounge.category}
                 </span>
 
                 <div className="flex items-center gap-1.5 text-xs font-orbitron font-bold">
-                  <Users className="w-3.5 h-3.5 text-[#B99668]" />
-                  <span className={lounge.activeCount > 0 ? 'text-emerald-700 font-extrabold' : 'text-[#8A6444]'}>
+                  <Users className="w-3.5 h-3.5 text-[#F59E0B]" />
+                  <span className={lounge.activeCount > 0 ? 'text-[#10B981] font-extrabold' : 'text-[#94A3B8]'}>
                     {lounge.activeCount > 0 ? `${lounge.activeCount} Live` : `0/${lounge.maxCapacity}`}
                   </span>
                   {lounge.activeCount > 0 && (
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                   )}
                 </div>
               </div>
@@ -333,18 +333,18 @@ export const VoiceLoungesTab: React.FC = () => {
               {/* Middle: Title & Description */}
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#EAE3D8] border border-[#DDD0BF] flex items-center justify-center text-xl shrink-0 shadow-inner">
+                  <div className="w-10 h-10 rounded-xl bg-[#1C2541] border border-[#38BDF8]/20 flex items-center justify-center text-xl shrink-0 shadow-inner">
                     {lounge.icon}
                   </div>
                   <div>
-                    <h3 className="font-cinzel font-bold text-base text-[#3A2A22] line-clamp-1">
+                    <h3 className="font-cinzel font-bold text-base text-[#FFFFFF] line-clamp-1">
                       {lounge.name}
                     </h3>
-                    <p className="text-xs text-[#8A6444] font-inter">Host: {lounge.hostName}</p>
+                    <p className="text-xs text-[#94A3B8] font-inter">Host: {lounge.hostName}</p>
                   </div>
                 </div>
 
-                <p className="text-xs text-[#3A2A22]/80 font-inter line-clamp-2 leading-relaxed">
+                <p className="text-xs text-[#E2E8F0]/80 font-inter line-clamp-2 leading-relaxed">
                   {lounge.description}
                 </p>
 
@@ -353,7 +353,7 @@ export const VoiceLoungesTab: React.FC = () => {
                   {lounge.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded text-[10px] font-inter bg-[#F2ECE3] text-[#8A6444] border border-[#DDD0BF]/60"
+                      className="px-2 py-0.5 rounded-lg text-[10px] font-inter bg-[#1C2541] text-[#38BDF8] border border-[#38BDF8]/20"
                     >
                       #{tag}
                     </span>
@@ -362,16 +362,16 @@ export const VoiceLoungesTab: React.FC = () => {
               </div>
 
               {/* Bottom: Action Buttons */}
-              <div className="flex items-center gap-2 pt-2 border-t border-[#DDD0BF]/60">
+              <div className="flex items-center gap-2 pt-2 border-t border-[#38BDF8]/15">
                 <button
                   onClick={() => handleJoinRoom(lounge)}
-                  className={`flex-1 py-2.5 px-3 rounded-lg font-inter text-xs font-bold flex items-center justify-center gap-2 transition-all ${
+                  className={`flex-1 py-2.5 px-3 rounded-xl font-inter text-xs font-bold flex items-center justify-center gap-2 transition-all ${
                     isCurrentActive
-                      ? 'bg-[#8E2D2D] text-[#FAF6F0] shadow-sm'
-                      : 'bg-[#FAF6F0] border border-[#B99668] text-[#3A2A22] hover:bg-[#8E2D2D] hover:text-[#FAF6F0]'
+                      ? 'bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] text-white shadow-md'
+                      : 'bg-[#1C2541] border border-[#38BDF8]/30 text-[#E2E8F0] hover:bg-[#283655] hover:text-[#FFFFFF]'
                   }`}
                 >
-                  <Radio className={`w-3.5 h-3.5 ${isCurrentActive ? 'animate-pulse text-[#B99668]' : ''}`} />
+                  <Radio className={`w-3.5 h-3.5 ${isCurrentActive ? 'animate-pulse text-[#F59E0B]' : ''}`} />
                   {isCurrentActive ? 'Leave Voice' : 'Join Web Voice'}
                 </button>
 
@@ -380,10 +380,10 @@ export const VoiceLoungesTab: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => soundManager.playUiClick()}
-                  className="py-2.5 px-3 rounded-lg bg-[#EAE3D8] hover:bg-[#DDD0BF] text-[#3A2A22] border border-[#DDD0BF] font-inter text-xs font-bold flex items-center justify-center gap-1.5 transition-all"
+                  className="py-2.5 px-3 rounded-xl bg-[#1C2541] hover:bg-[#283655] text-[#38BDF8] border border-[#38BDF8]/25 font-inter text-xs font-bold flex items-center justify-center gap-1.5 transition-all"
                   title="Open in Google Meet"
                 >
-                  <ExternalLink className="w-3.5 h-3.5 text-[#4285F4]" />
+                  <ExternalLink className="w-3.5 h-3.5 text-[#38BDF8]" />
                   <span>Google Meet</span>
                 </a>
               </div>
@@ -394,19 +394,19 @@ export const VoiceLoungesTab: React.FC = () => {
 
       {/* CREATE VOICE ROOM MODAL */}
       {isCreatingModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3A2A22]/60 backdrop-blur-sm animate-fade-in">
-          <div className="parchment-card rounded-2xl w-full max-w-md overflow-hidden shadow-2xl relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B132B]/80 backdrop-blur-md animate-fade-in">
+          <div className="parchment-card rounded-2xl w-full max-w-md overflow-hidden shadow-2xl relative bg-[#111D3A] border border-[#38BDF8]/40">
             <RuneCorners />
             
             {/* Modal Header */}
-            <div className="bg-[#EAE3D8] p-5 border-b border-[#DDD0BF] flex items-center justify-between">
+            <div className="bg-[#1C2541] p-5 border-b border-[#38BDF8]/20 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Radio className="w-5 h-5 text-[#8E2D2D]" />
-                <h3 className="font-cinzel font-bold text-lg text-[#3A2A22]">Create Public Voice Room</h3>
+                <Radio className="w-5 h-5 text-[#38BDF8]" />
+                <h3 className="font-cinzel font-bold text-lg text-[#FFFFFF]">Create Public Voice Room</h3>
               </div>
               <button
                 onClick={() => setIsCreatingModalOpen(false)}
-                className="text-[#8A6444] hover:text-[#3A2A22] text-sm font-bold"
+                className="text-[#94A3B8] hover:text-[#FFFFFF] text-sm font-bold"
               >
                 ✕
               </button>
@@ -414,7 +414,7 @@ export const VoiceLoungesTab: React.FC = () => {
 
             <form onSubmit={handleCreateLoungeSubmit} className="p-6 space-y-4">
               <div>
-                <label className="block text-xs font-bold font-orbitron text-[#3A2A22] mb-1">
+                <label className="block text-xs font-bold font-orbitron text-[#38BDF8] mb-1">
                   Room Name
                 </label>
                 <input
@@ -423,12 +423,12 @@ export const VoiceLoungesTab: React.FC = () => {
                   placeholder="e.g. Shield-Bros Post-Match Chill"
                   value={newLoungeName}
                   onChange={(e) => setNewLoungeName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#F2ECE3] border border-[#DDD0BF] text-xs font-inter text-[#3A2A22] focus:outline-none focus:border-[#8E2D2D]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#1C2541] border border-[#38BDF8]/25 text-xs font-inter text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#38BDF8]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold font-orbitron text-[#3A2A22] mb-1">
+                <label className="block text-xs font-bold font-orbitron text-[#38BDF8] mb-1">
                   Host Name
                 </label>
                 <input
@@ -436,18 +436,18 @@ export const VoiceLoungesTab: React.FC = () => {
                   placeholder="e.g. Captain Torstein"
                   value={newLoungeHost}
                   onChange={(e) => setNewLoungeHost(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#F2ECE3] border border-[#DDD0BF] text-xs font-inter text-[#3A2A22] focus:outline-none focus:border-[#8E2D2D]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#1C2541] border border-[#38BDF8]/25 text-xs font-inter text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#38BDF8]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold font-orbitron text-[#3A2A22] mb-1">
+                <label className="block text-xs font-bold font-orbitron text-[#38BDF8] mb-1">
                   Category
                 </label>
                 <select
                   value={newLoungeCategory}
                   onChange={(e) => setNewLoungeCategory(e.target.value as any)}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#F2ECE3] border border-[#DDD0BF] text-xs font-inter text-[#3A2A22] focus:outline-none focus:border-[#8E2D2D]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#1C2541] border border-[#38BDF8]/25 text-xs font-inter text-[#E2E8F0] focus:outline-none focus:border-[#38BDF8]"
                 >
                   <option value="Match Chat">Match Chat</option>
                   <option value="Team Tactics">Team Tactics</option>
@@ -457,7 +457,7 @@ export const VoiceLoungesTab: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold font-orbitron text-[#3A2A22] mb-1">
+                <label className="block text-xs font-bold font-orbitron text-[#38BDF8] mb-1">
                   Description
                 </label>
                 <textarea
@@ -465,12 +465,12 @@ export const VoiceLoungesTab: React.FC = () => {
                   placeholder="What are warriors discussing in this hall?"
                   value={newLoungeDesc}
                   onChange={(e) => setNewLoungeDesc(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#F2ECE3] border border-[#DDD0BF] text-xs font-inter text-[#3A2A22] focus:outline-none focus:border-[#8E2D2D]"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#1C2541] border border-[#38BDF8]/25 text-xs font-inter text-[#E2E8F0] placeholder-[#64748B] focus:outline-none focus:border-[#38BDF8]"
                 />
               </div>
 
-              <div className="p-3 bg-[#EAE3D8]/60 rounded-lg border border-[#DDD0BF] text-[11px] text-[#8A6444] flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#34A853] shrink-0" />
+              <div className="p-3 bg-[#1C2541] rounded-xl border border-[#38BDF8]/20 text-[11px] text-[#94A3B8] flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0" />
                 <span>Every room includes an instant Google Meet space link for high-definition video & clear audio call chilling!</span>
               </div>
 
@@ -478,13 +478,13 @@ export const VoiceLoungesTab: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsCreatingModalOpen(false)}
-                  className="px-4 py-2 rounded-lg text-xs font-bold text-[#8A6444] hover:text-[#3A2A22]"
+                  className="px-4 py-2 rounded-xl text-xs font-bold text-[#94A3B8] hover:text-[#FFFFFF]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-lg bg-[#8E2D2D] hover:bg-[#722323] text-[#FAF6F0] text-xs font-bold border border-[#B99668]/50 shadow-sm"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] hover:brightness-110 text-white text-xs font-bold border border-[#38BDF8]/50 shadow-md"
                 >
                   Launch Voice Room
                 </button>
@@ -496,3 +496,4 @@ export const VoiceLoungesTab: React.FC = () => {
     </div>
   );
 };
+

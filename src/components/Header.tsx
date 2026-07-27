@@ -20,22 +20,22 @@ export const Header: React.FC<HeaderProps> = ({
   const telegramUrl = 'https://t.me/SUPERLEAGUE_RAGNAROK';
 
   return (
-    <header className="relative z-10 pt-6 pb-4 px-4 sm:px-6 max-w-7xl mx-auto border-b border-[#DDD0BF]">
+    <header className="relative z-10 pt-6 pb-4 px-4 sm:px-6 max-w-7xl mx-auto border-b border-[#38BDF8]/20">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Title & Emblem */}
         <div className="flex items-center gap-3.5 text-center md:text-left">
-          <div className="w-12 h-12 rounded-xl bg-[#FAF6F0] border-2 border-[#B99668] shadow-[0_2px_8px_rgba(138,100,68,0.15)] flex items-center justify-center text-[#8E2D2D] shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#111D3A] border-2 border-[#38BDF8] shadow-[0_0_15px_rgba(56,189,248,0.3)] flex items-center justify-center text-[#38BDF8] shrink-0">
             <Shield className="w-6 h-6 stroke-[2.2]" />
           </div>
           <div>
-            <h1 className="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#3A2A22]">
-              SUPERLEAGUE <span className="text-[#B99668]">•</span> <span className="text-[#8E2D2D]">RAGNAROK</span>
+            <h1 className="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wider text-[#FFFFFF]">
+              SUPERLEAGUE <span className="text-[#38BDF8]">•</span> <span className="text-[#F59E0B]">RAGNAROK</span>
             </h1>
-            <p className="font-inter text-xs sm:text-sm text-[#8A6444] tracking-widest font-bold flex items-center justify-center md:justify-start gap-2 mt-0.5">
-              <span className="text-[#8E2D2D] font-orbitron">SEASON 4</span>
-              <span className="text-[#B99668]">•</span>
-              <span className="uppercase text-[#3A2A22]">The Dawn of War</span>
+            <p className="font-inter text-xs sm:text-sm text-[#94A3B8] tracking-widest font-bold flex items-center justify-center md:justify-start gap-2 mt-0.5">
+              <span className="text-[#38BDF8] font-orbitron">SEASON 4</span>
+              <span className="text-[#F59E0B]">•</span>
+              <span className="uppercase text-[#E2E8F0]">The Dawn of War</span>
             </p>
           </div>
         </div>
@@ -48,14 +48,14 @@ export const Header: React.FC<HeaderProps> = ({
               soundManager.playUiClick();
               onToggleSound();
             }}
-            title={soundEnabled ? 'Disable War Drums Audio' : 'Enable War Drums Audio'}
-            className={`p-2.5 rounded-lg border transition-all text-xs font-semibold flex items-center gap-1.5 ${
+            title={soundEnabled ? 'Disable Music Audio' : 'Enable Music Audio'}
+            className={`p-2.5 rounded-xl border transition-all text-xs font-semibold flex items-center gap-1.5 ${
               soundEnabled
-                ? 'bg-[#8E2D2D] border-[#8E2D2D] text-[#FAF6F0] shadow-md'
-                : 'bg-[#FAF6F0] border-[#DDD0BF] text-[#3A2A22] hover:border-[#B99668]'
+                ? 'bg-[#0284C7] border-[#38BDF8] text-[#FFFFFF] shadow-[0_0_12px_rgba(56,189,248,0.4)]'
+                : 'bg-[#111D3A] border-[#38BDF8]/30 text-[#94A3B8] hover:border-[#38BDF8] hover:text-[#E2E8F0]'
             }`}
           >
-            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#FAF6F0]" /> : <VolumeX className="w-4 h-4 text-[#8A6444]" />}
+            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#FFFFFF]" /> : <VolumeX className="w-4 h-4 text-[#94A3B8]" />}
           </button>
 
           {/* Admin / Manager Mode Toggle */}
@@ -65,13 +65,13 @@ export const Header: React.FC<HeaderProps> = ({
               onToggleAdminMode();
             }}
             title="Toggle Match Score Editor Mode"
-            className={`px-3 py-2 rounded-lg border transition-all text-xs font-semibold flex items-center gap-1.5 ${
+            className={`px-3 py-2 rounded-xl border transition-all text-xs font-semibold flex items-center gap-1.5 ${
               isAdminMode
-                ? 'bg-[#B99668] border-[#B99668] text-white shadow-md'
-                : 'bg-[#FAF6F0] border-[#DDD0BF] text-[#3A2A22] hover:border-[#B99668]'
+                ? 'bg-[#F59E0B] border-[#F59E0B] text-black font-bold shadow-md'
+                : 'bg-[#111D3A] border-[#38BDF8]/30 text-[#E2E8F0] hover:border-[#F59E0B]'
             }`}
           >
-            <ShieldAlert className="w-3.5 h-3.5 text-[#8E2D2D]" />
+            <ShieldAlert className="w-3.5 h-3.5 text-[#F59E0B]" />
             <span>{isAdminMode ? 'Editor Active' : 'Score Editor'}</span>
           </button>
 
@@ -81,9 +81,9 @@ export const Header: React.FC<HeaderProps> = ({
               soundManager.playUiClick();
               onOpenInstallModal();
             }}
-            className="px-3.5 py-2 rounded-lg bg-[#8E2D2D] hover:bg-[#722323] text-[#FAF6F0] font-inter text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] border border-[#B99668]/50"
+            className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] hover:from-[#0369A1] hover:to-[#1E293B] text-white font-inter text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md transition-all hover:scale-[1.02] active:scale-[0.98] border border-[#38BDF8]/40"
           >
-            <Smartphone className="w-4 h-4 text-[#B99668]" />
+            <Smartphone className="w-4 h-4 text-[#38BDF8]" />
             <span>Install App</span>
           </button>
 
@@ -93,14 +93,14 @@ export const Header: React.FC<HeaderProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => soundManager.playUiClick()}
-            className="px-3.5 py-2 rounded-lg bg-[#FAF6F0] border border-[#DDD0BF] hover:border-[#B99668] text-[#3A2A22] font-inter text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all shadow-sm"
+            className="px-3.5 py-2 rounded-xl bg-[#111D3A] border border-[#38BDF8]/30 hover:border-[#38BDF8] text-[#E2E8F0] font-inter text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all shadow-sm"
           >
-            <Send className="w-4 h-4 text-[#8E2D2D]" />
+            <Send className="w-4 h-4 text-[#38BDF8]" />
             <span>Telegram Channel</span>
           </a>
 
           {/* Season Badge */}
-          <div className="px-3 py-2 rounded-lg bg-[#FAF6F0] border border-[#B99668] text-[#8E2D2D] font-orbitron text-xs font-bold flex items-center gap-1.5 shadow-sm">
+          <div className="px-3 py-2 rounded-xl bg-[#111D3A] border border-[#F59E0B] text-[#F59E0B] font-orbitron text-xs font-bold flex items-center gap-1.5 shadow-sm">
             <span>SEASON 4</span>
           </div>
         </div>

@@ -7,6 +7,8 @@ import { Navigation } from './components/Navigation';
 import { GroupsTab } from './components/GroupsTab';
 import { StatsTab } from './components/StatsTab';
 import { FixturesTab } from './components/FixturesTab';
+import { TeamCompareTab } from './components/TeamCompareTab';
+import { PredictionsTab } from './components/PredictionsTab';
 import { VoiceLoungesTab } from './components/VoiceLoungesTab';
 import { ShareBox } from './components/ShareBox';
 import { SponsorFooter } from './components/SponsorFooter';
@@ -134,7 +136,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen bg-parchment text-[#3A2A22] font-inter relative overflow-x-hidden selection:bg-[#8E2D2D] selection:text-[#FAF6F0] flex flex-col justify-between ${isShaking ? 'animate-screen-shake' : ''}`}>
+    <div className={`min-h-screen bg-parchment text-[#E2E8F0] font-inter relative overflow-x-hidden selection:bg-[#38BDF8] selection:text-[#0B132B] flex flex-col justify-between ${isShaking ? 'animate-screen-shake' : ''}`}>
       
       {/* Background Particle Embers */}
       <EmbersCanvas />
@@ -150,7 +152,7 @@ export default function App() {
           onToggleAdminMode={() => setIsAdminMode(!isAdminMode)}
         />
 
-        {/* Navigation Tabs (3 Tabs) */}
+        {/* Navigation Tabs */}
         <Navigation
           activeTab={activeTab}
           onTabChange={(tab) => setActiveTab(tab)}
@@ -178,6 +180,20 @@ export default function App() {
               isAdminMode={isAdminMode}
               onEditMatch={(match) => setEditingMatch(match)}
               lastUpdatedMatchId={lastUpdatedMatchId}
+            />
+          )}
+
+          {activeTab === 'compare' && (
+            <TeamCompareTab
+              teams={teams}
+              matches={matches}
+              players={[...topScorers, ...topAssists]}
+            />
+          )}
+
+          {activeTab === 'predictions' && (
+            <PredictionsTab
+              matches={matches}
             />
           )}
 
