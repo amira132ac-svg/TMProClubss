@@ -3,6 +3,7 @@
   "appId": "1:640473292429:web:6c62e25ee62ede886eccc4",
   "apiKey": "AIzaSyCdrdxAMX8IrFMLDtHgSzEXTjaIJPkwwOo",
   "authDomain": "theta-deck-pds98.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-superleagueragna-010ef8c1-60d9-48c3-afa7-f6c2f906e226",
   "storageBucket": "theta-deck-pds98.firebasestorage.app",
   "messagingSenderId": "640473292429",
   "measurementId": "",

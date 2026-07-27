@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Match } from '../types';
 import { Trophy, Lock, ShieldCheck, Target, Award, Sparkles, Check, ChevronDown, ChevronUp, UserCheck, CheckCircle2, AlertCircle } from 'lucide-react';
 import { soundManager } from '../utils/audio';
+import { doc, setDoc, onSnapshot, collection } from 'firebase/firestore';
+import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 
 interface PredictionsTabProps {
   matches: Match[];
@@ -36,6 +38,7 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
   const [userPredictions, setUserPredictions] = useState<Record<string, { home: number; away: number }>>({});
   const [expandedUser, setExpandedUser] = useState<string | null>(null);
   const [savedNotice, setSavedNotice] = useState(false);
+  const [remoteLeaderboard, setRemoteLeaderboard] = useState<LeaderboardEntry[]>([]);
 
   // Load locked username & user predictions on mount
   useEffect(() => {
@@ -52,8 +55,47 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
     }
   }, []);
 
+  // Firebase Firestore real-time listener for leaderboard predictions
+  useEffect(() => {
+    const path = 'predictions';
+    const unsubscribe = onSnapshot(
+      collection(db, path),
+      (snapshot) => {
+        const entries: LeaderboardEntry[] = [];
+        snapshot.forEach((docSnap) => {
+          const data = docSnap.data();
+          if (data && data.name) {
+            entries.push({
+              id: docSnap.id,
+              name: data.name,
+              isCurrentUser: lockedUsername ? data.name.toLowerCase() === lockedUsername.toLowerCase() : false,
+              isLocked: true,
+              points: data.points || 0,
+              exactScores: data.exactScores || 0,
+              correctOutcomes: data.correctOutcomes || 0,
+              predictions: data.predictions || {},
+              avatar: data.avatar || '🏆'
+            });
+          }
+        });
+
+        entries.sort((a, b) => {
+          if (b.points !== a.points) return b.points - a.points;
+          return b.exactScores - a.exactScores;
+        });
+
+        setRemoteLeaderboard(entries);
+      },
+      (error) => {
+        handleFirestoreError(error, OperationType.GET, path);
+      }
+    );
+
+    return () => unsubscribe();
+  }, [lockedUsername]);
+
   // Lock Username permanently
-  const handleLockUsername = (e: React.FormEvent) => {
+  const handleLockUsername = async (e: React.FormEvent) => {
     e.preventDefault();
     const cleanName = usernameInput.trim();
     if (!cleanName) return;
@@ -62,6 +104,24 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
     localStorage.setItem('viking_locked_username', cleanName);
     setLockedUsername(cleanName);
     setUsernameInput('');
+
+    // Sync user entry to Firestore
+    const docId = cleanName.toLowerCase().replace(/[^a-z0-9_-]/g, '_');
+    const path = `predictions/${docId}`;
+    try {
+      await setDoc(doc(db, 'predictions', docId), {
+        id: docId,
+        name: cleanName,
+        points: userStats.points,
+        exactScores: userStats.exactScores,
+        correctOutcomes: userStats.correctOutcomes,
+        avatar: '🏆',
+        predictions: userPredictions,
+        updatedAt: new Date().toISOString()
+      }, { merge: true });
+    } catch (err) {
+      handleFirestoreError(err, OperationType.WRITE, path);
+    }
   };
 
   // Update a single prediction input
@@ -78,9 +138,30 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
   };
 
   // Save predictions
-  const handleSavePredictions = () => {
+  const handleSavePredictions = async () => {
     soundManager.playUiClick();
     localStorage.setItem('viking_user_predictions', JSON.stringify(userPredictions));
+
+    if (lockedUsername) {
+      const stats = calculateUserPoints();
+      const docId = lockedUsername.trim().toLowerCase().replace(/[^a-z0-9_-]/g, '_');
+      const path = `predictions/${docId}`;
+      try {
+        await setDoc(doc(db, 'predictions', docId), {
+          id: docId,
+          name: lockedUsername,
+          points: stats.points,
+          exactScores: stats.exactScores,
+          correctOutcomes: stats.correctOutcomes,
+          avatar: '🏆',
+          predictions: userPredictions,
+          updatedAt: new Date().toISOString()
+        }, { merge: true });
+      } catch (err) {
+        handleFirestoreError(err, OperationType.WRITE, path);
+      }
+    }
+
     setSavedNotice(true);
     setTimeout(() => setSavedNotice(false), 3000);
   };
@@ -115,24 +196,37 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
 
   const userStats = calculateUserPoints();
 
-  // Combine currentUser into Leaderboard
-  const currentUserLeaderboardEntry: LeaderboardEntry | null = lockedUsername
-    ? {
-        id: 'current-user-locked',
-        name: lockedUsername,
+  // Merge local user entry if not already in remote
+  let fullLeaderboard = [...remoteLeaderboard];
+  if (lockedUsername) {
+    const foundIndex = fullLeaderboard.findIndex(
+      e => e.name.toLowerCase() === lockedUsername.toLowerCase()
+    );
+    const currentUserEntry: LeaderboardEntry = {
+      id: 'current-user-locked',
+      name: lockedUsername,
+      isCurrentUser: true,
+      isLocked: true,
+      points: userStats.points,
+      exactScores: userStats.exactScores,
+      correctOutcomes: userStats.correctOutcomes,
+      avatar: '🏆',
+      predictions: userPredictions
+    };
+
+    if (foundIndex >= 0) {
+      fullLeaderboard[foundIndex] = {
+        ...fullLeaderboard[foundIndex],
         isCurrentUser: true,
-        isLocked: true,
         points: userStats.points,
         exactScores: userStats.exactScores,
         correctOutcomes: userStats.correctOutcomes,
-        avatar: '🏆',
         predictions: userPredictions
-      }
-    : null;
-
-  const fullLeaderboard: LeaderboardEntry[] = currentUserLeaderboardEntry
-    ? [...INITIAL_LEADERBOARD_SEED, currentUserLeaderboardEntry]
-    : INITIAL_LEADERBOARD_SEED;
+      };
+    } else {
+      fullLeaderboard.push(currentUserEntry);
+    }
+  }
 
   // Sort descending by points, then exactScores
   fullLeaderboard.sort((a, b) => {
@@ -467,7 +561,7 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
                         </p>
                         {Object.keys(entry.predictions).length > 0 ? (
                           <div className="grid grid-cols-2 gap-1.5">
-                            {Object.entries(entry.predictions).map(([matchId, p]) => {
+                            {Object.entries(entry.predictions).map(([matchId, p]: [string, { home: number; away: number }]) => {
                               const matchObj = matches.find(m => m.id === matchId);
                               return (
                                 <div key={matchId} className="p-1.5 rounded bg-[#1C2541] border border-[#38BDF8]/10 text-[11px] flex justify-between">

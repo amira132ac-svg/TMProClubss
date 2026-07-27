@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "LeaderboardEntry": {
+      "title": "Leaderboard Entry",
+      "description": "User predictions and score leaderboard entry",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 50
+        },
+        "avatar": {
+          "type": "string",
+          "maxLength": 10
+        },
+        "points": {
+          "type": "number"
+        },
+        "exactScores": {
+          "type": "number"
+        },
+        "correctOutcomes": {
+          "type": "number"
+        },
+        "predictions": {
+          "type": "object"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ]
+    }
+  },
+  "firestore": {
+    "/predictions/{userId}": {
+      "schema": {
+        "$ref": "#/entities/LeaderboardEntry"
+      },
+      "description": "Collection of user predictions and scores indexed by user ID"
+    }
+  }
+}
