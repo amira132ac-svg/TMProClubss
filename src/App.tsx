@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ActiveTab, Team, Match, Player } from './types';
-import { initialTeams, initialMatches, initialTopScorers, initialTopAssists } from './data/initialData';
+import { initialTeams, initialMatches, initialTopScorers, initialTopAssists, computeStandings } from './data/initialData';
 import { EmbersCanvas } from './components/EmbersCanvas';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
@@ -17,7 +17,7 @@ import { soundManager } from './utils/audio';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('groups');
-  const [teams, setTeams] = useState<Team[]>(initialTeams);
+  const [teams, setTeams] = useState<Team[]>(() => computeStandings(initialTeams, initialMatches));
   const [matches, setMatches] = useState<Match[]>(initialMatches);
   const [topScorers, setTopScorers] = useState<Player[]>(initialTopScorers);
   const [topAssists, setTopAssists] = useState<Player[]>(initialTopAssists);
@@ -78,58 +78,7 @@ export default function App() {
     soundManager.playUiTab();
 
     // Recompute standings for all teams
-    const newTeams = teams.map((team) => {
-      // Find all finished matches involving this team
-      const teamFinishedMatches = newMatches.filter(
-        (m) => m.status === 'finished' && (m.homeTeamId === team.id || m.awayTeamId === team.id)
-      );
-
-      let played = 0;
-      let won = 0;
-      let drawn = 0;
-      let lost = 0;
-      let goalsFor = 0;
-      let goalsAgainst = 0;
-      const form: ('W' | 'D' | 'L')[] = [];
-
-      teamFinishedMatches.forEach((m) => {
-        played++;
-        const isHome = m.homeTeamId === team.id;
-        const myScore = isHome ? (m.homeScore ?? 0) : (m.awayScore ?? 0);
-        const opponentScore = isHome ? (m.awayScore ?? 0) : (m.homeScore ?? 0);
-
-        goalsFor += myScore;
-        goalsAgainst += opponentScore;
-
-        if (myScore > opponentScore) {
-          won++;
-          form.push('W');
-        } else if (myScore === opponentScore) {
-          drawn++;
-          form.push('D');
-        } else {
-          lost++;
-          form.push('L');
-        }
-      });
-
-      const goalDifference = goalsFor - goalsAgainst;
-      const points = won * 3 + drawn * 1;
-
-      return {
-        ...team,
-        played,
-        won,
-        drawn,
-        lost,
-        goalsFor,
-        goalsAgainst,
-        goalDifference,
-        points,
-        form: form.slice(-4)
-      };
-    });
-
+    const newTeams = computeStandings(initialTeams, newMatches);
     setTeams(newTeams);
   };
 

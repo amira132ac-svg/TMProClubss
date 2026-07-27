@@ -530,12 +530,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-b3',
     homeTeamName: 'DARYASALAR',
     awayTeamName: 'TEHRAN LEGACY',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 4,
+    awayScore: 1,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '23:00'
+    time: 'FT'
   },
   {
     id: 'm-mon-2',
@@ -545,12 +545,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-a7',
     homeTeamName: 'PERSIANEMPIRE',
     awayTeamName: 'TITANS',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 1,
+    awayScore: 1,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '23:00'
+    time: 'FT'
   },
   {
     id: 'm-mon-3',
@@ -560,12 +560,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-b5',
     homeTeamName: 'SPIRITS',
     awayTeamName: 'A R Y A',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 2,
+    awayScore: 1,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '23:30'
+    time: 'FT'
   },
   {
     id: 'm-mon-4',
@@ -575,12 +575,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-c5',
     homeTeamName: 'VANGUARD FC',
     awayTeamName: 'BAY CLUB',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 4,
+    awayScore: 2,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '23:30'
+    time: 'FT'
   },
   {
     id: 'm-mon-5',
@@ -605,12 +605,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-c5',
     homeTeamName: 'TAPE',
     awayTeamName: 'BAY CLUB',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 5,
+    awayScore: 0,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '00:00'
+    time: 'FT'
   },
   {
     id: 'm-mon-7',
@@ -620,12 +620,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-d7',
     homeTeamName: 'YOUNG WIZARD',
     awayTeamName: 'RMP FC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 1,
+    awayScore: 1,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '00:00'
+    time: 'FT'
   },
   {
     id: 'm-mon-8',
@@ -635,12 +635,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-a6',
     homeTeamName: 'AFTABESAZI',
     awayTeamName: 'ULTIMO BAILE',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 3,
+    awayScore: 2,
+    status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: '00:30'
+    time: 'FT'
   },
 
   // ================= TUESDAY MATCHES =================
@@ -772,12 +772,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-a2',
     homeTeamName: 'TITANS',
     awayTeamName: 'GORGALI FC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 11,
+    awayScore: 1,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '00:15'
+    time: 'FT'
   },
   {
     id: 'm-tue-10',
@@ -814,3 +814,56 @@ export const initialMatches: Match[] = [
 export const initialTopScorers: Player[] = [];
 
 export const initialTopAssists: Player[] = [];
+
+export function computeStandings(teamsList: Team[], matchesList: Match[]): Team[] {
+  return teamsList.map((team) => {
+    const teamFinishedMatches = matchesList.filter(
+      (m) => m.status === 'finished' && (m.homeTeamId === team.id || m.awayTeamId === team.id)
+    );
+
+    let played = 0;
+    let won = 0;
+    let drawn = 0;
+    let lost = 0;
+    let goalsFor = 0;
+    let goalsAgainst = 0;
+    const form: ('W' | 'D' | 'L')[] = [];
+
+    teamFinishedMatches.forEach((m) => {
+      played++;
+      const isHome = m.homeTeamId === team.id;
+      const myScore = isHome ? (m.homeScore ?? 0) : (m.awayScore ?? 0);
+      const opponentScore = isHome ? (m.awayScore ?? 0) : (m.homeScore ?? 0);
+
+      goalsFor += myScore;
+      goalsAgainst += opponentScore;
+
+      if (myScore > opponentScore) {
+        won++;
+        form.push('W');
+      } else if (myScore === opponentScore) {
+        drawn++;
+        form.push('D');
+      } else {
+        lost++;
+        form.push('L');
+      }
+    });
+
+    const goalDifference = goalsFor - goalsAgainst;
+    const points = won * 3 + drawn * 1;
+
+    return {
+      ...team,
+      played,
+      won,
+      drawn,
+      lost,
+      goalsFor,
+      goalsAgainst,
+      goalDifference,
+      points,
+      form: form.slice(-5)
+    };
+  });
+}
