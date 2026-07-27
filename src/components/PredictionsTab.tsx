@@ -39,6 +39,9 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
   const [expandedUser, setExpandedUser] = useState<string | null>(null);
   const [savedNotice, setSavedNotice] = useState(false);
   const [remoteLeaderboard, setRemoteLeaderboard] = useState<LeaderboardEntry[]>([]);
+  const [isSaving, setIsSaving] = useState(false);
+  const [firebaseError, setFirebaseError] = useState<string | null>(null);
+  const [isRealtimeActive, setIsRealtimeActive] = useState<boolean>(false);
 
   // Load locked username & user predictions on mount
   useEffect(() => {
@@ -58,9 +61,11 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
   // Firebase Firestore real-time listener for leaderboard predictions
   useEffect(() => {
     const path = 'predictions';
+    setFirebaseError(null);
     const unsubscribe = onSnapshot(
       collection(db, path),
       (snapshot) => {
+        setIsRealtimeActive(true);
         const entries: LeaderboardEntry[] = [];
         snapshot.forEach((docSnap) => {
           const data = docSnap.data();
@@ -81,13 +86,17 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
 
         entries.sort((a, b) => {
           if (b.points !== a.points) return b.points - a.points;
-          return b.exactScores - a.exactScores;
+          if (b.exactScores !== a.exactScores) return b.exactScores - a.exactScores;
+          return (b.correctOutcomes || 0) - (a.correctOutcomes || 0);
         });
 
         setRemoteLeaderboard(entries);
       },
       (error) => {
-        handleFirestoreError(error, OperationType.GET, path);
+        setIsRealtimeActive(false);
+        const errMsg = error?.message || 'خطا در برقراری ارتباط با فایربیس';
+        console.error("Firestore onSnapshot error:", error);
+        setFirebaseError(`خطا در دریافت زنده لیدربرد از فایربیس: ${errMsg}`);
       }
     );
 
@@ -101,6 +110,9 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
     if (!cleanName) return;
 
     soundManager.playUiClick();
+    setIsSaving(true);
+    setFirebaseError(null);
+
     localStorage.setItem('viking_locked_username', cleanName);
     setLockedUsername(cleanName);
     setUsernameInput('');
@@ -119,8 +131,13 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
         predictions: userPredictions,
         updatedAt: new Date().toISOString()
       }, { merge: true });
-    } catch (err) {
-      handleFirestoreError(err, OperationType.WRITE, path);
+    } catch (err: unknown) {
+      const errMsg = err instanceof Error ? err.message : String(err);
+      console.error("Firestore setDoc error:", err);
+      setFirebaseError(`خطا در ذخیره‌سازی نام کاربر در فایربیس: ${errMsg}`);
+      alert(`خطا در ثبت نام و ذخیره در فایربیس:\n${errMsg}`);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -143,6 +160,8 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
     localStorage.setItem('viking_user_predictions', JSON.stringify(userPredictions));
 
     if (lockedUsername) {
+      setIsSaving(true);
+      setFirebaseError(null);
       const stats = calculateUserPoints();
       const docId = lockedUsername.trim().toLowerCase().replace(/[^a-z0-9_-]/g, '_');
       const path = `predictions/${docId}`;
@@ -157,13 +176,20 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
           predictions: userPredictions,
           updatedAt: new Date().toISOString()
         }, { merge: true });
-      } catch (err) {
-        handleFirestoreError(err, OperationType.WRITE, path);
+        setSavedNotice(true);
+        setTimeout(() => setSavedNotice(false), 3000);
+      } catch (err: unknown) {
+        const errMsg = err instanceof Error ? err.message : String(err);
+        console.error("Firestore save predictions error:", err);
+        setFirebaseError(`خطا در ذخیره‌سازی پیش‌بینی در فایربیس: ${errMsg}`);
+        alert(`خطا در ذخیره پیش‌بینی‌ها در فایربیس:\n${errMsg}`);
+      } finally {
+        setIsSaving(false);
       }
+    } else {
+      setSavedNotice(true);
+      setTimeout(() => setSavedNotice(false), 3000);
     }
-
-    setSavedNotice(true);
-    setTimeout(() => setSavedNotice(false), 3000);
   };
 
   // Calculate user points dynamically against finished matches
@@ -237,6 +263,22 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
   return (
     <div className="space-y-6 animate-fade-in pb-12">
       
+      {/* Firebase Error Alert Banner */}
+      {firebaseError && (
+        <div className="p-4 rounded-xl bg-rose-500/20 border border-rose-500/50 text-rose-200 text-xs flex items-center justify-between gap-3 animate-fade-in shadow-lg">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 text-rose-400 shrink-0" />
+            <span className="font-medium">{firebaseError}</span>
+          </div>
+          <button
+            onClick={() => setFirebaseError(null)}
+            className="px-2.5 py-1 rounded-lg bg-rose-500/30 text-white font-bold hover:bg-rose-500/50 transition-colors text-[11px] shrink-0"
+          >
+            بستن
+          </button>
+        </div>
+      )}
+
       {/* Header Banner */}
       <div className="bg-[#111D3A]/90 border border-[#38BDF8]/30 rounded-2xl p-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -287,6 +329,7 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
             <input
               type="text"
               required
+              disabled={isSaving}
               placeholder="نام یا آیدی خود را وارد کنید (مثلاً: Amir_Viking)"
               value={usernameInput}
               onChange={(e) => setUsernameInput(e.target.value)}
@@ -294,10 +337,11 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
             />
             <button
               type="submit"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-[#0B132B] font-bold font-orbitron text-xs flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all shrink-0"
+              disabled={isSaving}
+              className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-[#0B132B] font-bold font-orbitron text-xs flex items-center justify-center gap-2 shadow-lg hover:brightness-110 active:scale-95 transition-all shrink-0 disabled:opacity-50"
             >
               <Lock className="w-4 h-4" />
-              <span>ثبت و قفل دائمی نام</span>
+              <span>{isSaving ? 'در حال ثبت در فایربیس...' : 'ثبت و قفل دائمی نام'}</span>
             </button>
           </form>
         </div>
@@ -342,10 +386,11 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
               {lockedUsername && (
                 <button
                   onClick={handleSavePredictions}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] text-white font-bold text-xs font-orbitron border border-[#38BDF8] shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center gap-1.5"
+                  disabled={isSaving}
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#0284C7] to-[#1E3A8A] text-white font-bold text-xs font-orbitron border border-[#38BDF8] shadow-md hover:brightness-110 active:scale-95 transition-all flex items-center gap-1.5 disabled:opacity-50"
                 >
                   <Check className="w-4 h-4" />
-                  <span>ذخیره پیش‌بینی‌ها</span>
+                  <span>{isSaving ? 'در حال ذخیره...' : 'ذخیره پیش‌بینی‌ها'}</span>
                 </button>
               )}
             </div>
@@ -456,9 +501,12 @@ export const PredictionsTab: React.FC<PredictionsTabProps> = ({ matches }) => {
                   جدول لیدربورد پیش‌بینی (LEADERBOARD)
                 </h3>
               </div>
-              <span className="text-[11px] font-orbitron text-[#38BDF8] font-bold">
-                RANKINGS
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className={`w-2 h-2 rounded-full ${isRealtimeActive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
+                <span className="text-[11px] font-orbitron text-[#38BDF8] font-bold">
+                  {isRealtimeActive ? 'LIVE REALTIME' : 'RANKINGS'}
+                </span>
+              </div>
             </div>
 
             <div className="space-y-2.5">
