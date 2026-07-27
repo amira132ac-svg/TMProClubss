@@ -30,12 +30,6 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
       label: 'مقایسه تیم‌ها',
       icon: <Swords className="w-4 h-4" />,
       badge: 'H2H'
-    },
-    {
-      id: 'predictions',
-      label: 'پیش‌بینی و لیدربرد',
-      icon: <Trophy className="w-4 h-4" />,
-      badge: 'LIVE'
     }
   ];
 
@@ -46,7 +40,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
 
   return (
     <nav className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 my-4">
-      <div className="bg-[#10173A]/90 border border-[#38BDF8]/25 rounded-2xl p-1.5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md">
+      <div className="bg-[#10173A]/90 border border-[#38BDF8]/25 rounded-2xl p-1.5 grid grid-cols-2 sm:grid-cols-4 gap-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (

@@ -60,23 +60,6 @@ export const Header: React.FC<HeaderProps> = ({
             {soundEnabled ? <Volume2 className="w-4 h-4 text-[#38BDF8]" /> : <VolumeX className="w-4 h-4 text-[#94A3B8]" />}
           </button>
 
-          {/* Admin / Manager Mode Toggle */}
-          <button
-            onClick={() => {
-              soundManager.playUiClick();
-              onToggleAdminMode();
-            }}
-            title="حالت ویرایش نتایج مسابقات"
-            className={`px-3 py-2 rounded-xl border transition-all text-xs font-semibold flex items-center gap-1.5 ${
-              isAdminMode
-                ? 'bg-[#F59E0B] border-[#F59E0B] text-[#0A0E2A] font-extrabold shadow-md'
-                : 'bg-[#10173A] border-[#38BDF8]/25 text-white hover:border-[#F59E0B]/50'
-            }`}
-          >
-            <ShieldAlert className="w-3.5 h-3.5 text-[#F59E0B]" />
-            <span>{isAdminMode ? 'ویرایشگر فعال' : 'ویرایش نتایج'}</span>
-          </button>
-
           {/* Install App Button */}
           <button
             onClick={() => {

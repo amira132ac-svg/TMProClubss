@@ -8,7 +8,6 @@ import { GroupsTab } from './components/GroupsTab';
 import { StatsTab } from './components/StatsTab';
 import { FixturesTab } from './components/FixturesTab';
 import { TeamCompareTab } from './components/TeamCompareTab';
-import { PredictionsTab } from './components/PredictionsTab';
 import { ShareBox } from './components/ShareBox';
 import { SponsorFooter } from './components/SponsorFooter';
 import { InstallModal } from './components/InstallModal';
@@ -187,12 +186,6 @@ export default function App() {
               teams={teams}
               matches={matches}
               players={[...topScorers, ...topAssists]}
-            />
-          )}
-
-          {activeTab === 'predictions' && (
-            <PredictionsTab
-              matches={matches}
             />
           )}
         </main>

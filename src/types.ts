@@ -47,4 +47,4 @@ export interface Match {
   day?: 'Sunday' | 'Monday' | 'Tuesday' | 'TBD';
 }
 
-export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare' | 'predictions';
+export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare';

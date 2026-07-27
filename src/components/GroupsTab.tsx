@@ -181,7 +181,7 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
                           </td>
 
                           {/* Points */}
-                          <td className="py-3 px-3 text-center text-sm font-extrabold text-[#D4AF37]">
+                          <td className="py-3 px-3 text-center text-sm font-extrabold text-[#F59E0B]">
                             {team.points}
                           </td>
                         </tr>
