@@ -58,11 +58,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
               </span>
               <span className="truncate">{tab.label}</span>
               {tab.badge && (
-                <span className={`text-[9px] px-1.5 py-0.2 rounded font-mono font-extrabold ${
-                  tab.id === 'predictions' 
-                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' 
-                    : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                }`}>
+                <span className="text-[9px] px-1.5 py-0.2 rounded font-mono font-extrabold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                   {tab.badge}
                 </span>
               )}
