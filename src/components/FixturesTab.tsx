@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Match, GroupName } from '../types';
 import { Clock, Edit3, CheckCircle2 } from 'lucide-react';
 import { soundManager } from '../utils/audio';
+import { useLanguage } from '../context/LanguageContext';
 
 interface FixturesTabProps {
   matches: Match[];
@@ -14,8 +15,8 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
   matches,
   isAdminMode,
   onEditMatch,
-  lastUpdatedMatchId
 }) => {
+  const { t } = useLanguage();
   const [selectedGroup, setSelectedGroup] = useState<string>('ALL');
   const [statusFilter, setStatusFilter] = useState<'ALL' | 'finished' | 'upcoming'>('ALL');
   const [selectedDay, setSelectedDay] = useState<string>('ALL');
@@ -23,11 +24,11 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
   const groups: GroupName[] = ['A', 'B', 'C', 'D'];
 
   const dayOptions = [
-    { id: 'ALL', label: 'همه روزها' },
-    { id: 'Sunday', label: 'یکشنبه' },
-    { id: 'Monday', label: 'دوشنبه' },
-    { id: 'Tuesday', label: 'سه‌شنبه' },
-    { id: 'TBD', label: 'نامشخص' }
+    { id: 'ALL', label: t.allDays },
+    { id: 'Sunday', label: t.daySunday },
+    { id: 'Monday', label: t.dayMonday },
+    { id: 'Tuesday', label: t.dayTuesday },
+    { id: 'TBD', label: t.dayTBD }
   ];
 
   const filteredMatches = matches.filter((match) => {
@@ -50,10 +51,10 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <h2 className="font-vazir text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span className="text-[#38BDF8]">⚔</span> برنامه و نتایج مسابقات
+              <span className="text-[#38BDF8]">⚔</span> {t.fixturesTitle}
             </h2>
             <p className="text-xs sm:text-sm text-[#94A3B8] font-vazir mt-1 font-medium">
-              جدول زمان‌بندی و نتایج زنده فصل ۴ سوپرلیگ
+              {t.fixturesSubtitle}
             </p>
           </div>
 
@@ -69,7 +70,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                   statusFilter === 'ALL' ? 'bg-[#1B2960] text-[#38BDF8] font-bold shadow-sm' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
-                همه
+                {t.allStatus}
               </button>
               <button
                 onClick={() => {
@@ -80,7 +81,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                   statusFilter === 'finished' ? 'bg-[#1B2960] text-[#38BDF8] font-bold shadow-sm' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
-                نتایج
+                {t.resultsStatus}
               </button>
               <button
                 onClick={() => {
@@ -91,7 +92,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                   statusFilter === 'upcoming' ? 'bg-[#1B2960] text-[#38BDF8] font-bold shadow-sm' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
-                پیش‌رو
+                {t.upcomingStatus}
               </button>
             </div>
 
@@ -106,7 +107,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                   selectedGroup === 'ALL' ? 'bg-[#38BDF8] text-[#0A0E2A] font-extrabold' : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
-                همه
+                {t.allGroups}
               </button>
               {groups.map((g) => (
                 <button
@@ -119,7 +120,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                     selectedGroup === g ? 'bg-[#38BDF8] text-[#0A0E2A] font-extrabold' : 'text-[#94A3B8] hover:text-white'
                   }`}
                 >
-                  گروه {g}
+                  {t.groupLabel} {g}
                 </button>
               ))}
             </div>
@@ -128,7 +129,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
 
         {/* Day Filters */}
         <div className="flex items-center gap-2 overflow-x-auto pt-2 border-t border-[#38BDF8]/20 scrollbar-none">
-          <span className="text-xs font-vazir font-bold text-[#38BDF8] shrink-0 ml-1">روز برگزاری:</span>
+          <span className="text-xs font-vazir font-bold text-[#38BDF8] shrink-0 ml-1">{t.matchDay}</span>
           {dayOptions.map((opt) => (
             <button
               key={opt.id}
@@ -166,11 +167,11 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                     {group}
                   </span>
                   <h3 className="font-vazir text-sm font-bold text-[#38BDF8]">
-                    مسابقات گروه {group}
+                    {t.groupLabel} {group}
                   </h3>
                 </div>
                 <span className="text-xs font-vazir text-[#94A3B8] font-medium">
-                  {groupMatches.length} مسابقه
+                  {groupMatches.length}
                 </span>
               </div>
 
@@ -179,7 +180,6 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                 {groupMatches.map((match) => {
                   const isFinished = match.status === 'finished';
                   const isLive = match.status === 'live';
-                  const isRecentlyUpdated = lastUpdatedMatchId === match.id;
 
                   return (
                     <div
@@ -197,7 +197,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                       {/* Date / Round Info */}
                       <div className="flex items-center gap-2 text-xs font-vazir text-[#38BDF8] font-semibold w-full sm:w-32 justify-center sm:justify-start">
                         <Clock className="w-3.5 h-3.5 text-[#38BDF8]" />
-                        <span>دور {match.round}</span>
+                        <span>{t.round} {match.round}</span>
                       </div>
 
                       {/* Main Match Score / Vs */}
@@ -221,7 +221,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                               <span>:</span>
                               <span>{match.awayScore ?? 0}</span>
                               <span className="text-[10px] bg-emerald-500 text-[#0A0E2A] px-1 rounded font-bold">
-                                زنده
+                                {t.live}
                               </span>
                             </div>
                           ) : (
@@ -245,16 +245,16 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
                             className="px-2.5 py-1 rounded-lg bg-[#38BDF8] text-[#0A0E2A] font-vazir text-xs font-bold flex items-center gap-1 hover:brightness-110 transition-all shadow-sm"
                           >
                             <Edit3 className="w-3 h-3" />
-                            <span>ویرایش</span>
+                            <span>Edit</span>
                           </button>
                         ) : isFinished ? (
                           <span className="px-2.5 py-1 rounded-lg bg-[#1B2960] border border-[#38BDF8]/30 text-white font-vazir text-[11px] font-semibold flex items-center gap-1">
                             <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                            <span>پایان یافته</span>
+                            <span>{t.finished}</span>
                           </span>
                         ) : (
                           <span className="px-2.5 py-1 rounded-lg bg-[#0B112C] text-[#94A3B8] font-vazir text-[11px] font-semibold border border-[#38BDF8]/20">
-                            برگذار نشده
+                            {t.notPlayed}
                           </span>
                         )}
                       </div>
@@ -268,11 +268,12 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
 
         {filteredMatches.length === 0 && (
           <div className="bg-[#10173A]/90 border border-[#38BDF8]/25 rounded-2xl p-8 text-center text-[#94A3B8] font-vazir text-xs">
-            هیچ مسابقه‌ای برای فیلتر انتخاب شده یافت نشد
+            {t.noMatches}
           </div>
         )}
       </div>
     </div>
   );
 };
+
 

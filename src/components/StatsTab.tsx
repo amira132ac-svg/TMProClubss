@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Player } from '../types';
 import { Target, Award, Search, Users, Shield } from 'lucide-react';
 import { initialTeamPlayerStats } from '../data/initialData';
+import { useLanguage } from '../context/LanguageContext';
 
 interface StatsTabProps {
   topScorers: Player[];
@@ -9,6 +10,7 @@ interface StatsTabProps {
 }
 
 export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) => {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
 
   const filterPlayers = (players: Player[]) => {
@@ -35,10 +37,10 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-[#10173A]/90 border border-[#38BDF8]/25 p-4 sm:p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md">
         <div>
           <h2 className="font-vazir text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-            <span className="text-[#38BDF8]">⚔</span> آمار و جدول گلزنان / پاس گل
+            <span className="text-[#38BDF8]">⚔</span> {t.statsTitle}
           </h2>
           <p className="text-xs sm:text-sm text-[#94A3B8] font-vazir mt-1 font-medium">
-            برترین گلزنان، پاسورها و عملکرد کلی تیم‌های فصل ۴ سوپرلیگ
+            {t.statsSubtitle}
           </p>
         </div>
 
@@ -47,7 +49,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#38BDF8]" />
           <input
             type="text"
-            placeholder="جستجوی نام بازیکن یا باشگاه..."
+            placeholder={t.searchPlaceholder}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-9 pr-3 py-2 rounded-xl bg-[#0B112C] border border-[#38BDF8]/20 text-xs text-white placeholder-[#64748B] focus:outline-none focus:border-[#38BDF8] transition-colors font-vazir"
@@ -59,7 +61,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
       <div className="bg-[#10173A]/90 border border-[#38BDF8]/40 rounded-2xl p-4 text-white flex items-center gap-3 shadow-md">
         <span className="text-lg shrink-0">⚽</span>
         <p className="text-xs sm:text-sm font-vazir font-semibold text-[#38BDF8]">
-          آمار گلزنان، پاسورها و عملکرد کلی تیم‌ها به‌روزرسانی شد. ✨
+          {t.statsNotice}
         </p>
       </div>
 
@@ -71,9 +73,9 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
           <div className="bg-[#0B112C] px-5 py-4 border-b border-[#38BDF8]/20 flex items-center justify-between">
             <div>
               <h3 className="font-vazir text-base font-bold text-[#F59E0B] flex items-center gap-2">
-                جدول گلزنان برتر
+                {t.topScorers}
               </h3>
-              <p className="text-[11px] text-[#94A3B8] font-vazir font-medium">برترین گلزنان مسابقات</p>
+              <p className="text-[11px] text-[#94A3B8] font-vazir font-medium">{t.topScorersSub}</p>
             </div>
             <Award className="w-5 h-5 text-[#F59E0B]" />
           </div>
@@ -82,10 +84,10 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
             <table className="w-full text-right text-xs sm:text-sm font-vazir">
               <thead>
                 <tr className="bg-[#0B112C]/80 text-[#38BDF8] border-b border-[#38BDF8]/20 text-[11px] font-bold">
-                  <th className="py-2.5 px-3 text-center w-12">#</th>
-                  <th className="py-2.5 px-3 text-right">بازیکن</th>
-                  <th className="py-2.5 px-3 text-right">باشگاه</th>
-                  <th className="py-2.5 px-3 text-center font-extrabold text-[#F59E0B]">گل‌ها</th>
+                  <th className="py-2.5 px-3 text-center w-12">{t.rank}</th>
+                  <th className="py-2.5 px-3 text-right">{t.team}</th>
+                  <th className="py-2.5 px-3 text-right">{t.team}</th>
+                  <th className="py-2.5 px-3 text-center font-extrabold text-[#F59E0B]">{t.goals}</th>
                 </tr>
               </thead>
 
@@ -142,7 +144,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
                 {filteredScorers.length === 0 && (
                   <tr>
                     <td colSpan={4} className="py-8 text-center text-[#94A3B8] font-vazir text-xs space-y-1">
-                      <p className="font-semibold text-white">بازیکنی یافت نشد</p>
+                      <p className="font-semibold text-white">{t.playerNotFound}</p>
                     </td>
                   </tr>
                 )}
@@ -156,9 +158,9 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
           <div className="bg-[#0B112C] px-5 py-4 border-b border-[#38BDF8]/20 flex items-center justify-between">
             <div>
               <h3 className="font-vazir text-base font-bold text-[#38BDF8] flex items-center gap-2">
-                جدول پاس گل‌دهندگان
+                {t.topAssists}
               </h3>
-              <p className="text-[11px] text-[#94A3B8] font-vazir font-medium">برترین پاسورهای مسابقات</p>
+              <p className="text-[11px] text-[#94A3B8] font-vazir font-medium">{t.topAssistsSub}</p>
             </div>
             <Target className="w-5 h-5 text-[#38BDF8]" />
           </div>
@@ -167,10 +169,10 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
             <table className="w-full text-right text-xs sm:text-sm font-vazir">
               <thead>
                 <tr className="bg-[#0B112C]/80 text-[#38BDF8] border-b border-[#38BDF8]/20 text-[11px] font-bold">
-                  <th className="py-2.5 px-3 text-center w-12">#</th>
-                  <th className="py-2.5 px-3 text-right">بازیکن</th>
-                  <th className="py-2.5 px-3 text-right">باشگاه</th>
-                  <th className="py-2.5 px-3 text-center font-extrabold text-[#38BDF8]">پاس گل</th>
+                  <th className="py-2.5 px-3 text-center w-12">{t.rank}</th>
+                  <th className="py-2.5 px-3 text-right">{t.team}</th>
+                  <th className="py-2.5 px-3 text-right">{t.team}</th>
+                  <th className="py-2.5 px-3 text-center font-extrabold text-[#38BDF8]">{t.assists}</th>
                 </tr>
               </thead>
 
@@ -227,7 +229,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
                 {filteredAssists.length === 0 && (
                   <tr>
                     <td colSpan={4} className="py-8 text-center text-[#94A3B8] font-vazir text-xs space-y-1">
-                      <p className="font-semibold text-white">بازیکنی یافت نشد</p>
+                      <p className="font-semibold text-white">{t.playerNotFound}</p>
                     </td>
                   </tr>
                 )}
@@ -244,9 +246,9 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
           <div>
             <h3 className="font-vazir text-base font-bold text-white flex items-center gap-2">
               <Shield className="w-5 h-5 text-[#38BDF8]" />
-              <span>📊 آمار کلی تیم‌ها</span>
+              <span>{t.overallTeamStats}</span>
             </h3>
-            <p className="text-[11px] text-[#94A3B8] font-vazir font-medium">مجموع گل، پاس گل و امتیاز کل بازیکنان هر تیم</p>
+            <p className="text-[11px] text-[#94A3B8] font-vazir font-medium">{t.overallTeamStatsSub}</p>
           </div>
         </div>
 
@@ -254,11 +256,11 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
           <table className="w-full text-right text-xs sm:text-sm font-vazir">
             <thead>
               <tr className="bg-[#0B112C]/80 text-[#38BDF8] border-b border-[#38BDF8]/20 text-[11px] font-bold">
-                <th className="py-2.5 px-3 text-center w-12">#</th>
-                <th className="py-2.5 px-3 text-right">تیم</th>
-                <th className="py-2.5 px-3 text-center">مجموع گل</th>
-                <th className="py-2.5 px-3 text-center">مجموع پاس گل</th>
-                <th className="py-2.5 px-3 text-center font-extrabold text-[#F59E0B]">مجموع امتیاز (گل + پاس)</th>
+                <th className="py-2.5 px-3 text-center w-12">{t.rank}</th>
+                <th className="py-2.5 px-3 text-right">{t.team}</th>
+                <th className="py-2.5 px-3 text-center">{t.goals}</th>
+                <th className="py-2.5 px-3 text-center">{t.assists}</th>
+                <th className="py-2.5 px-3 text-center font-extrabold text-[#F59E0B]">{t.totalPoints}</th>
               </tr>
             </thead>
 
@@ -292,7 +294,7 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
         <div className="flex items-center gap-2 border-b border-[#38BDF8]/20 pb-3">
           <Users className="w-5 h-5 text-[#38BDF8]" />
           <h3 className="font-vazir text-base font-bold text-white">
-            📋 جزئیات عملکرد بازیکنان به تفکیک تیم
+            {t.playerBreakdown}
           </h3>
         </div>
 
@@ -321,12 +323,12 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
                     <div className="flex items-center gap-2 text-[11px] font-bold">
                       {p.goals > 0 && (
                         <span className="text-[#F59E0B] bg-[#F59E0B]/10 px-1.5 py-0.5 rounded border border-[#F59E0B]/20">
-                          {p.goals} گل
+                          {p.goals} {t.goalsUnit}
                         </span>
                       )}
                       {p.assists > 0 && (
                         <span className="text-[#38BDF8] bg-[#38BDF8]/10 px-1.5 py-0.5 rounded border border-[#38BDF8]/20">
-                          {p.assists} پاس
+                          {p.assists} {t.assistsUnit}
                         </span>
                       )}
                     </div>
@@ -341,5 +343,6 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
     </div>
   );
 };
+
 
 

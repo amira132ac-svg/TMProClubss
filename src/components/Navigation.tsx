@@ -1,7 +1,8 @@
 import React from 'react';
 import { ActiveTab } from '../types';
-import { Shield, BarChart2, Calendar, Swords, Trophy } from 'lucide-react';
+import { Shield, BarChart2, Calendar, Swords } from 'lucide-react';
 import { soundManager } from '../utils/audio';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NavigationProps {
   activeTab: ActiveTab;
@@ -9,25 +10,27 @@ interface NavigationProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
+  const { t } = useLanguage();
+
   const tabs: { id: ActiveTab; label: string; icon: React.ReactNode; badge?: string }[] = [
     {
       id: 'groups',
-      label: 'جدول گروه‌ها',
+      label: t.groupsTab,
       icon: <Shield className="w-4 h-4" />
     },
     {
       id: 'fixtures',
-      label: 'برنامه مسابقات',
+      label: t.fixturesTab,
       icon: <Calendar className="w-4 h-4" />
     },
     {
       id: 'stats',
-      label: 'آمار بازیکنان',
+      label: t.statsTab,
       icon: <BarChart2 className="w-4 h-4" />
     },
     {
       id: 'compare',
-      label: 'مقایسه تیم‌ها',
+      label: t.compareTab,
       icon: <Swords className="w-4 h-4" />,
       badge: 'H2H'
     }
@@ -72,6 +75,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }
     </nav>
   );
 };
+
 
 
 

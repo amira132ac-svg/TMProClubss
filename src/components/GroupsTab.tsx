@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Team, GroupName } from '../types';
 import { Search } from 'lucide-react';
 import { soundManager } from '../utils/audio';
+import { useLanguage } from '../context/LanguageContext';
 
 interface GroupsTabProps {
   teams: Team[];
@@ -9,6 +10,7 @@ interface GroupsTabProps {
 }
 
 export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedGroupFilter, setSelectedGroupFilter] = useState<string>('ALL');
 
@@ -35,10 +37,10 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-[#10173A]/90 border border-[#38BDF8]/25 p-4 sm:p-5 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md">
         <div>
           <h2 className="font-vazir text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-            <span className="text-[#38BDF8]">⚔</span> مرحله گروهی سوپرلیگ
+            <span className="text-[#38BDF8]">⚔</span> {t.groupsTitle}
           </h2>
           <p className="text-xs sm:text-sm text-[#94A3B8] font-vazir mt-1 font-medium">
-            ۲۸ تیم در ۴ گروه رقابتی برای صعود به مرحله حذفی
+            {t.groupsSubtitle}
           </p>
         </div>
 
@@ -48,7 +50,7 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#38BDF8]" />
             <input
               type="text"
-              placeholder="جستجوی نام تیم..."
+              placeholder={t.searchPlaceholder}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-9 pr-3 py-2 rounded-xl bg-[#0B112C] border border-[#38BDF8]/20 text-xs text-white placeholder-[#64748B] focus:outline-none focus:border-[#38BDF8] transition-colors font-vazir"
@@ -67,7 +69,7 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
                     : 'text-[#94A3B8] hover:text-white'
                 }`}
               >
-                {grp === 'ALL' ? 'همه گروه‌ها' : `گروه ${grp}`}
+                {grp === 'ALL' ? t.allGroups : `${t.groupLabel} ${grp}`}
               </button>
             ))}
           </div>
@@ -91,13 +93,13 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
                     {group}
                   </div>
                   <h3 className="font-vazir text-base font-bold text-[#38BDF8] tracking-wide">
-                    گروه {group}
+                    {t.groupLabel} {group}
                   </h3>
                 </div>
 
                 <div className="flex items-center gap-2 text-xs font-vazir text-slate-200 font-medium">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>۲ تیم اول صعودکننده</span>
+                  <span>{t.qualifyRule}</span>
                 </div>
               </div>
 
@@ -106,14 +108,14 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
                 <table className="w-full text-right text-xs sm:text-sm font-vazir">
                   <thead>
                     <tr className="bg-[#0B112C]/90 text-[#38BDF8] border-b border-[#38BDF8]/20 text-[11px] font-bold">
-                      <th className="py-2.5 px-3 text-center w-10">#</th>
-                      <th className="py-2.5 px-3 text-right">تیم</th>
-                      <th className="py-2.5 px-2 text-center">بازی</th>
-                      <th className="py-2.5 px-2 text-center">برد</th>
-                      <th className="py-2.5 px-2 text-center">مساوی</th>
-                      <th className="py-2.5 px-2 text-center">باخت</th>
-                      <th className="py-2.5 px-2 text-center">تفاضل</th>
-                      <th className="py-2.5 px-3 text-center font-extrabold text-[#F59E0B]">امتیاز</th>
+                      <th className="py-2.5 px-3 text-center w-10">{t.rank}</th>
+                      <th className="py-2.5 px-3 text-right">{t.team}</th>
+                      <th className="py-2.5 px-2 text-center">{t.played}</th>
+                      <th className="py-2.5 px-2 text-center">{t.won}</th>
+                      <th className="py-2.5 px-2 text-center">{t.drawn}</th>
+                      <th className="py-2.5 px-2 text-center">{t.lost}</th>
+                      <th className="py-2.5 px-2 text-center">{t.goalDiff}</th>
+                      <th className="py-2.5 px-3 text-center font-extrabold text-[#F59E0B]">{t.points}</th>
                     </tr>
                   </thead>
 
@@ -191,7 +193,7 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
                     {groupTeams.length === 0 && (
                       <tr>
                         <td colSpan={8} className="py-6 text-center text-[#94A3B8] font-vazir text-xs">
-                          تیمی با این عبارت جستجو یافت نشد
+                          {t.noMatches}
                         </td>
                       </tr>
                     )}
@@ -205,4 +207,5 @@ export const GroupsTab: React.FC<GroupsTabProps> = ({ teams, onSelectTeam }) => 
     </div>
   );
 };
+
 
