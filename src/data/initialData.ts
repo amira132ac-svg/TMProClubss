@@ -56,15 +56,15 @@ export const initialTeams: Team[] = [
     shortName: 'MAT',
     group: 'A',
     logo: '',
-    played: 1,
-    won: 1,
+    played: 0,
+    won: 0,
     drawn: 0,
     lost: 0,
-    goalsFor: 1,
+    goalsFor: 0,
     goalsAgainst: 0,
-    goalDifference: 1,
-    points: 3,
-    form: ['W']
+    goalDifference: 0,
+    points: 0,
+    form: []
   },
   {
     id: 'team-a5',
@@ -72,15 +72,15 @@ export const initialTeams: Team[] = [
     shortName: 'CHK',
     group: 'A',
     logo: '',
-    played: 1,
+    played: 0,
     won: 0,
     drawn: 0,
-    lost: 1,
+    lost: 0,
     goalsFor: 0,
-    goalsAgainst: 1,
-    goalDifference: -1,
+    goalsAgainst: 0,
+    goalDifference: 0,
     points: 0,
-    form: ['L']
+    form: []
   },
   {
     id: 'team-a6',
@@ -122,15 +122,15 @@ export const initialTeams: Team[] = [
     shortName: 'MSH',
     group: 'B',
     logo: '',
-    played: 1,
-    won: 1,
+    played: 0,
+    won: 0,
     drawn: 0,
     lost: 0,
-    goalsFor: 3,
+    goalsFor: 0,
     goalsAgainst: 0,
-    goalDifference: 3,
-    points: 3,
-    form: ['W']
+    goalDifference: 0,
+    points: 0,
+    form: []
   },
   {
     id: 'team-b2',
@@ -154,15 +154,15 @@ export const initialTeams: Team[] = [
     shortName: 'LEG',
     group: 'B',
     logo: '',
-    played: 1,
+    played: 0,
     won: 0,
     drawn: 0,
-    lost: 1,
+    lost: 0,
     goalsFor: 0,
-    goalsAgainst: 2,
-    goalDifference: -2,
+    goalsAgainst: 0,
+    goalDifference: 0,
     points: 0,
-    form: ['L']
+    form: []
   },
   {
     id: 'team-b4',
@@ -202,15 +202,15 @@ export const initialTeams: Team[] = [
     shortName: 'ALN',
     group: 'B',
     logo: '',
-    played: 1,
-    won: 1,
+    played: 0,
+    won: 0,
     drawn: 0,
     lost: 0,
-    goalsFor: 2,
+    goalsFor: 0,
     goalsAgainst: 0,
-    goalDifference: 2,
-    points: 3,
-    form: ['W']
+    goalDifference: 0,
+    points: 0,
+    form: []
   },
   {
     id: 'team-b7',
@@ -218,15 +218,15 @@ export const initialTeams: Team[] = [
     shortName: 'BEL',
     group: 'B',
     logo: '',
-    played: 1,
+    played: 0,
     won: 0,
     drawn: 0,
-    lost: 1,
+    lost: 0,
     goalsFor: 0,
-    goalsAgainst: 3,
-    goalDifference: -3,
+    goalsAgainst: 0,
+    goalDifference: 0,
     points: 0,
-    form: ['L']
+    form: []
   },
 
   // GROUP C
@@ -252,15 +252,15 @@ export const initialTeams: Team[] = [
     shortName: 'VAN',
     group: 'C',
     logo: '',
-    played: 1,
+    played: 0,
     won: 0,
     drawn: 0,
-    lost: 1,
+    lost: 0,
     goalsFor: 0,
-    goalsAgainst: 9,
-    goalDifference: -9,
+    goalsAgainst: 0,
+    goalDifference: 0,
     points: 0,
-    form: ['L']
+    form: []
   },
   {
     id: 'team-c3',
@@ -312,7 +312,7 @@ export const initialTeams: Team[] = [
   },
   {
     id: 'team-c6',
-    name: 'AZABEELAHI',
+    name: 'AZABE ELAHI',
     shortName: 'AZA',
     group: 'C',
     logo: '',
@@ -332,15 +332,15 @@ export const initialTeams: Team[] = [
     shortName: 'AZD',
     group: 'C',
     logo: '',
-    played: 1,
-    won: 1,
+    played: 0,
+    won: 0,
     drawn: 0,
     lost: 0,
-    goalsFor: 9,
+    goalsFor: 0,
     goalsAgainst: 0,
-    goalDifference: 9,
-    points: 3,
-    form: ['W']
+    goalDifference: 0,
+    points: 0,
+    form: []
   },
 
   // GROUP D
@@ -459,7 +459,7 @@ export const initialTeams: Team[] = [
 ];
 
 export const initialMatches: Match[] = [
-  // ================= SUNDAY MATCHES (FINISHED RESULTS) =================
+  // GROUP A MATCHES
   {
     id: 'm-sun-1',
     group: 'A',
@@ -476,68 +476,6 @@ export const initialMatches: Match[] = [
     time: 'FT'
   },
   {
-    id: 'm-sun-2',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b1',
-    awayTeamId: 'team-b7',
-    homeTeamName: 'MESSHAHRBABAK',
-    awayTeamName: 'BELAAD',
-    homeScore: 3,
-    awayScore: 0,
-    status: 'finished',
-    date: 'Sunday',
-    day: 'Sunday',
-    time: 'FT'
-  },
-  {
-    id: 'm-sun-3',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c7',
-    awayTeamId: 'team-c2',
-    homeTeamName: 'AZADI',
-    awayTeamName: 'VANGUARD FC',
-    homeScore: 9,
-    awayScore: 0,
-    status: 'finished',
-    date: 'Sunday',
-    day: 'Sunday',
-    time: 'FT'
-  },
-  {
-    id: 'm-sun-4',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b6',
-    awayTeamId: 'team-b3',
-    homeTeamName: 'ALNAHD',
-    awayTeamName: 'TEHRAN LEGACY',
-    homeScore: 2,
-    awayScore: 0,
-    status: 'finished',
-    date: 'Sunday',
-    day: 'Sunday',
-    time: 'FT'
-  },
-
-  // ================= MONDAY MATCHES =================
-  {
-    id: 'm-mon-1',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b4',
-    awayTeamId: 'team-b3',
-    homeTeamName: 'DARYASALAR',
-    awayTeamName: 'TEHRAN LEGACY',
-    homeScore: 4,
-    awayScore: 1,
-    status: 'finished',
-    date: 'Monday',
-    day: 'Monday',
-    time: 'FT'
-  },
-  {
     id: 'm-mon-2',
     group: 'A',
     round: 1,
@@ -545,81 +483,6 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-a7',
     homeTeamName: 'PERSIANEMPIRE',
     awayTeamName: 'TITANS',
-    homeScore: 1,
-    awayScore: 1,
-    status: 'finished',
-    date: 'Monday',
-    day: 'Monday',
-    time: 'FT'
-  },
-  {
-    id: 'm-mon-3',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b2',
-    awayTeamId: 'team-b5',
-    homeTeamName: 'SPIRITS',
-    awayTeamName: 'A R Y A',
-    homeScore: 2,
-    awayScore: 1,
-    status: 'finished',
-    date: 'Monday',
-    day: 'Monday',
-    time: 'FT'
-  },
-  {
-    id: 'm-mon-4',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c2',
-    awayTeamId: 'team-c5',
-    homeTeamName: 'VANGUARD FC',
-    awayTeamName: 'BAY CLUB',
-    homeScore: 4,
-    awayScore: 2,
-    status: 'finished',
-    date: 'Monday',
-    day: 'Monday',
-    time: 'FT'
-  },
-  {
-    id: 'm-mon-5',
-    group: 'D',
-    round: 1,
-    homeTeamId: 'team-d4',
-    awayTeamId: 'team-d3',
-    homeTeamName: 'VIKINGS',
-    awayTeamName: 'AFTAFA SAZAN FC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Monday',
-    day: 'Monday',
-    time: '23:30'
-  },
-  {
-    id: 'm-mon-6',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c4',
-    awayTeamId: 'team-c5',
-    homeTeamName: 'TAPE',
-    awayTeamName: 'BAY CLUB',
-    homeScore: 5,
-    awayScore: 0,
-    status: 'finished',
-    date: 'Monday',
-    day: 'Monday',
-    time: 'FT'
-  },
-  {
-    id: 'm-mon-7',
-    group: 'D',
-    round: 1,
-    homeTeamId: 'team-d2',
-    awayTeamId: 'team-d7',
-    homeTeamName: 'YOUNG WIZARD',
-    awayTeamName: 'RMP FC',
     homeScore: 1,
     awayScore: 1,
     status: 'finished',
@@ -642,37 +505,311 @@ export const initialMatches: Match[] = [
     day: 'Monday',
     time: 'FT'
   },
-
-  // ================= TUESDAY MATCHES =================
   {
     id: 'm-tue-1',
     group: 'A',
-    round: 1,
+    round: 2,
     homeTeamId: 'team-a3',
     awayTeamId: 'team-a4',
     homeTeamName: 'AFTABESAZI',
     awayTeamName: 'MATADORIR',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 3,
+    awayScore: 1,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '23:00'
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-8',
+    group: 'A',
+    round: 2,
+    homeTeamId: 'team-a2',
+    awayTeamId: 'team-a5',
+    homeTeamName: 'GORGALI FC',
+    awayTeamName: 'CHAEE KHORAN',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-9',
+    group: 'A',
+    round: 2,
+    homeTeamId: 'team-a7',
+    awayTeamId: 'team-a2',
+    homeTeamName: 'TITANS',
+    awayTeamName: 'GORGALI FC',
+    homeScore: 11,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+
+  // GROUP B MATCHES
+  {
+    id: 'm-sun-2',
+    group: 'B',
+    round: 1,
+    homeTeamId: 'team-b1',
+    awayTeamId: 'team-b7',
+    homeTeamName: 'MESSHAHRBABAK',
+    awayTeamName: 'BELAAD',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Sunday',
+    day: 'Sunday',
+    time: 'FT'
+  },
+  {
+    id: 'm-sun-4',
+    group: 'B',
+    round: 1,
+    homeTeamId: 'team-b6',
+    awayTeamId: 'team-b3',
+    homeTeamName: 'ALNAHD',
+    awayTeamName: 'TEHRAN LEGACY',
+    homeScore: 2,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Sunday',
+    day: 'Sunday',
+    time: 'FT'
+  },
+  {
+    id: 'm-mon-1',
+    group: 'B',
+    round: 1,
+    homeTeamId: 'team-b4',
+    awayTeamId: 'team-b3',
+    homeTeamName: 'DARYASALAR',
+    awayTeamName: 'TEHRAN LEGACY',
+    homeScore: 4,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Monday',
+    day: 'Monday',
+    time: 'FT'
+  },
+  {
+    id: 'm-mon-3',
+    group: 'B',
+    round: 1,
+    homeTeamId: 'team-b2',
+    awayTeamId: 'team-b5',
+    homeTeamName: 'SPIRITS',
+    awayTeamName: 'A R Y A',
+    homeScore: 2,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Monday',
+    day: 'Monday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-4',
+    group: 'B',
+    round: 2,
+    homeTeamId: 'team-b2',
+    awayTeamId: 'team-b7',
+    homeTeamName: 'SPIRITS',
+    awayTeamName: 'BELAAD',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-11',
+    group: 'B',
+    round: 2,
+    homeTeamId: 'team-b4',
+    awayTeamId: 'team-b5',
+    homeTeamName: 'DARYASALAR',
+    awayTeamName: 'A R Y A',
+    homeScore: 2,
+    awayScore: 2,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+
+  // GROUP C MATCHES
+  {
+    id: 'm-sun-3',
+    group: 'C',
+    round: 1,
+    homeTeamId: 'team-c7',
+    awayTeamId: 'team-c2',
+    homeTeamName: 'AZADI',
+    awayTeamName: 'VANGUARD FC',
+    homeScore: 9,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Sunday',
+    day: 'Sunday',
+    time: 'FT'
+  },
+  {
+    id: 'm-mon-4',
+    group: 'C',
+    round: 1,
+    homeTeamId: 'team-c2',
+    awayTeamId: 'team-c5',
+    homeTeamName: 'VANGUARD FC',
+    awayTeamName: 'BAY CLUB',
+    homeScore: 4,
+    awayScore: 2,
+    status: 'finished',
+    date: 'Monday',
+    day: 'Monday',
+    time: 'FT'
+  },
+  {
+    id: 'm-mon-6',
+    group: 'C',
+    round: 1,
+    homeTeamId: 'team-c4',
+    awayTeamId: 'team-c5',
+    homeTeamName: 'TAPE',
+    awayTeamName: 'BAY CLUB',
+    homeScore: 5,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Monday',
+    day: 'Monday',
+    time: 'FT'
   },
   {
     id: 'm-tue-2',
     group: 'C',
-    round: 1,
-    homeTeamId: 'team-c6',
+    round: 2,
+    homeTeamId: 'team-c3',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'SOROUSHFC',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 2,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-5',
+    group: 'C',
+    round: 2,
+    homeTeamId: 'team-c4',
     awayTeamId: 'team-c3',
-    homeTeamName: 'AZABEELAHI',
+    homeTeamName: 'TAPE',
     awayTeamName: 'SOROUSHFC',
+    homeScore: 5,
+    awayScore: 2,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-6',
+    group: 'C',
+    round: 2,
+    homeTeamId: 'team-c7',
+    awayTeamId: 'team-c1',
+    homeTeamName: 'AZADI',
+    awayTeamName: 'PERSIANGULF',
     homeScore: null,
     awayScore: null,
     status: 'upcoming',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '23:00'
+    time: '23:59'
+  },
+
+  // GROUP D MATCHES
+  {
+    id: 'm-mon-7',
+    group: 'D',
+    round: 1,
+    homeTeamId: 'team-d2',
+    awayTeamId: 'team-d7',
+    homeTeamName: 'YOUNG WIZARD',
+    awayTeamName: 'RMP FC',
+    homeScore: 1,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Monday',
+    day: 'Monday',
+    time: 'FT'
+  },
+  {
+    id: 'm-mon-5',
+    group: 'D',
+    round: 1,
+    homeTeamId: 'team-d4',
+    awayTeamId: 'team-d3',
+    homeTeamName: 'VIKINGS',
+    awayTeamName: 'AFTAFA SAZAN FC',
+    homeScore: 8,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Monday',
+    day: 'Monday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-7',
+    group: 'D',
+    round: 1,
+    homeTeamId: 'team-d5',
+    awayTeamId: 'team-d2',
+    homeTeamName: 'Y A D',
+    awayTeamName: 'YOUNG WIZARD',
+    homeScore: 6,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-12',
+    group: 'D',
+    round: 1,
+    homeTeamId: 'team-d1',
+    awayTeamId: 'team-d7',
+    homeTeamName: 'KAKASIAH',
+    awayTeamName: 'RMP FC',
+    homeScore: 2,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-tue-10',
+    group: 'D',
+    round: 2,
+    homeTeamId: 'team-d5',
+    awayTeamId: 'team-d4',
+    homeTeamName: 'Y A D',
+    awayTeamName: 'VIKINGS',
+    homeScore: 4,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
   },
   {
     id: 'm-tue-3',
@@ -688,126 +825,6 @@ export const initialMatches: Match[] = [
     date: 'Tuesday',
     day: 'Tuesday',
     time: '23:15'
-  },
-  {
-    id: 'm-tue-4',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b2',
-    awayTeamId: 'team-b7',
-    homeTeamName: 'SPIRITS',
-    awayTeamName: 'BELAAD',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '23:30'
-  },
-  {
-    id: 'm-tue-5',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c4',
-    awayTeamId: 'team-c3',
-    homeTeamName: 'TAPE',
-    awayTeamName: 'SOROUSHFC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '23:40'
-  },
-  {
-    id: 'm-tue-6',
-    group: 'C',
-    round: 1,
-    homeTeamId: 'team-c7',
-    awayTeamId: 'team-c1',
-    homeTeamName: 'AZADI',
-    awayTeamName: 'PERSIANGULF',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '23:59'
-  },
-  {
-    id: 'm-tue-7',
-    group: 'D',
-    round: 1,
-    homeTeamId: 'team-d2',
-    awayTeamId: 'team-d5',
-    homeTeamName: 'YOUNG WIZARD',
-    awayTeamName: 'Y A D',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '00:00'
-  },
-  {
-    id: 'm-tue-8',
-    group: 'A',
-    round: 1,
-    homeTeamId: 'team-a2',
-    awayTeamId: 'team-a5',
-    homeTeamName: 'GORGALI FC',
-    awayTeamName: 'CHAEE KHORAN',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '00:00'
-  },
-  {
-    id: 'm-tue-9',
-    group: 'A',
-    round: 1,
-    homeTeamId: 'team-a7',
-    awayTeamId: 'team-a2',
-    homeTeamName: 'TITANS',
-    awayTeamName: 'GORGALI FC',
-    homeScore: 11,
-    awayScore: 1,
-    status: 'finished',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: 'FT'
-  },
-  {
-    id: 'm-tue-10',
-    group: 'D',
-    round: 1,
-    homeTeamId: 'team-d5',
-    awayTeamId: 'team-d4',
-    homeTeamName: 'Y A D',
-    awayTeamName: 'VIKINGS',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '00:30'
-  },
-  {
-    id: 'm-tue-11',
-    group: 'B',
-    round: 1,
-    homeTeamId: 'team-b5',
-    awayTeamId: 'team-b4',
-    homeTeamName: 'A R Y A',
-    awayTeamName: 'DARYASALAR',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
-    date: 'Tuesday',
-    day: 'Tuesday',
-    time: '00:30'
   }
 ];
 
@@ -824,13 +841,24 @@ export const initialTopScorers: Player[] = [
     avatar: '⚽'
   },
   {
-    id: 'p-2',
-    name: 'X-MORTEZA',
-    teamId: 'team-c7',
-    teamName: 'AZADI',
+    id: 'p-yad-1',
+    name: 'Parsa / ParsaMadayeni',
+    teamId: 'team-d5',
+    teamName: 'Y A D',
+    goals: 5,
+    assists: 1,
+    matchesPlayed: 2,
+    position: 'مهاجم',
+    avatar: '👑'
+  },
+  {
+    id: 'p-vks-1',
+    name: 'Hosseinarya',
+    teamId: 'team-d4',
+    teamName: 'VIKINGS',
     goals: 4,
-    assists: 4,
-    matchesPlayed: 1,
+    assists: 3,
+    matchesPlayed: 2,
     position: 'وینگر',
     avatar: '⚡'
   },
@@ -857,25 +885,47 @@ export const initialTopScorers: Player[] = [
     avatar: '🌟'
   },
   {
-    id: 'p-5',
-    name: 'NAPOLEON',
-    teamId: 'team-b4',
-    teamName: 'DARYASALAR',
-    goals: 2,
-    assists: 1,
-    matchesPlayed: 1,
-    position: 'مهاجم',
-    avatar: '👑'
-  },
-  {
-    id: 'p-6',
-    name: 'CARRASCO',
-    teamId: 'team-c4',
-    teamName: 'TAPE',
-    goals: 2,
-    assists: 0,
+    id: 'p-2',
+    name: 'X-MORTEZA',
+    teamId: 'team-c7',
+    teamName: 'AZADI',
+    goals: 4,
+    assists: 4,
     matchesPlayed: 1,
     position: 'وینگر',
+    avatar: '⚡'
+  },
+  {
+    id: 'p-11',
+    name: 'rjb',
+    teamId: 'team-c4',
+    teamName: 'TAPE',
+    goals: 3,
+    assists: 4,
+    matchesPlayed: 2,
+    position: 'هافبک',
+    avatar: '🏹'
+  },
+  {
+    id: 'p-tap-2',
+    name: 'Dani',
+    teamId: 'team-c4',
+    teamName: 'TAPE',
+    goals: 3,
+    assists: 2,
+    matchesPlayed: 2,
+    position: 'مهاجم',
+    avatar: '⚽'
+  },
+  {
+    id: 'p-vks-2',
+    name: 'MCH',
+    teamId: 'team-d4',
+    teamName: 'VIKINGS',
+    goals: 3,
+    assists: 2,
+    matchesPlayed: 2,
+    position: 'هافبک',
     avatar: '🚀'
   }
 ];
@@ -893,6 +943,28 @@ export const initialTopAssists: Player[] = [
     avatar: '⚡'
   },
   {
+    id: 'p-11',
+    name: 'rjb',
+    teamId: 'team-c4',
+    teamName: 'TAPE',
+    goals: 3,
+    assists: 4,
+    matchesPlayed: 2,
+    position: 'هافبک',
+    avatar: '🏹'
+  },
+  {
+    id: 'p-10',
+    name: 'Matiniam',
+    teamId: 'team-b4',
+    teamName: 'DARYASALAR',
+    goals: 1,
+    assists: 3,
+    matchesPlayed: 2,
+    position: 'هافبک',
+    avatar: '🎩'
+  },
+  {
     id: 'p-7',
     name: 'babakop1',
     teamId: 'team-b1',
@@ -904,81 +976,26 @@ export const initialTopAssists: Player[] = [
     avatar: '🎯'
   },
   {
-    id: 'p-1',
-    name: 'Ehsan raeisi',
-    teamId: 'team-c7',
-    teamName: 'AZADI',
-    goals: 5,
-    assists: 2,
-    matchesPlayed: 1,
-    position: 'مهاجم',
-    avatar: '⚽'
+    id: 'p-vks-1',
+    name: 'Hosseinarya',
+    teamId: 'team-d4',
+    teamName: 'VIKINGS',
+    goals: 4,
+    assists: 3,
+    matchesPlayed: 2,
+    position: 'وینگر',
+    avatar: '⚡'
   },
   {
-    id: 'p-8',
-    name: 'MRF76615',
-    teamId: 'team-c7',
-    teamName: 'AZADI',
-    goals: 0,
-    assists: 2,
-    matchesPlayed: 1,
+    id: 'p-yad-2',
+    name: 'Mikh',
+    teamId: 'team-d5',
+    teamName: 'Y A D',
+    goals: 2,
+    assists: 3,
+    matchesPlayed: 2,
     position: 'هافبک',
     avatar: '🪄'
-  },
-  {
-    id: 'p-3',
-    name: 'Farhan',
-    teamId: 'team-a7',
-    teamName: 'TITANS',
-    goals: 4,
-    assists: 2,
-    matchesPlayed: 2,
-    position: 'مهاجم',
-    avatar: '🔥'
-  },
-  {
-    id: 'p-4',
-    name: 'ZIGILINHO',
-    teamId: 'team-a7',
-    teamName: 'TITANS',
-    goals: 4,
-    assists: 2,
-    matchesPlayed: 2,
-    position: 'هافبک هجومی',
-    avatar: '🌟'
-  },
-  {
-    id: 'p-9',
-    name: 'Reverse',
-    teamId: 'team-a7',
-    teamName: 'TITANS',
-    goals: 1,
-    assists: 2,
-    matchesPlayed: 2,
-    position: 'هافبک',
-    avatar: '🔁'
-  },
-  {
-    id: 'p-10',
-    name: 'Matiniam',
-    teamId: 'team-b4',
-    teamName: 'DARYASALAR',
-    goals: 0,
-    assists: 2,
-    matchesPlayed: 1,
-    position: 'هافبک',
-    avatar: '🎩'
-  },
-  {
-    id: 'p-11',
-    name: 'rjb',
-    teamId: 'team-c4',
-    teamName: 'TAPE',
-    goals: 1,
-    assists: 2,
-    matchesPlayed: 1,
-    position: 'هافبک',
-    avatar: '🏹'
   }
 ];
 
@@ -1028,42 +1045,92 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
   {
     teamName: 'TAPE',
     farsiName: 'تیپ',
-    goals: 5,
-    assists: 5,
-    totalPoints: 10,
+    goals: 11,
+    assists: 9,
+    totalPoints: 20,
     players: [
+      { name: 'rjb', goals: 3, assists: 4 },
+      { name: 'Dani', goals: 3, assists: 2 },
       { name: 'CARRASCO', goals: 2, assists: 0 },
-      { name: 'rjb', goals: 1, assists: 2 },
       { name: 'ASAp', goals: 1, assists: 1 },
-      { name: 'Dani', goals: 1, assists: 1 },
-      { name: 'Masiha', goals: 0, assists: 1 }
+      { name: 'RICARDO', goals: 1, assists: 0 },
+      { name: 'Costa', goals: 1, assists: 0 },
+      { name: 'Masiha', goals: 0, assists: 1 },
+      { name: 'Navid', goals: 0, assists: 1 }
     ]
   },
   {
-    teamName: 'DARYASALAR',
-    farsiName: 'دریا سالار',
-    goals: 3,
-    assists: 4,
-    totalPoints: 7,
+    teamName: 'VIKINGS',
+    farsiName: 'وایکینگز',
+    goals: 8,
+    assists: 7,
+    totalPoints: 15,
     players: [
-      { name: 'NAPOLEON', goals: 2, assists: 1 },
-      { name: 'xARVININOx', goals: 1, assists: 0 },
-      { name: 'Matiniam', goals: 0, assists: 2 },
-      { name: 'RezaCityzen', goals: 0, assists: 1 }
+      { name: 'Hosseinarya', goals: 4, assists: 3 },
+      { name: 'MCH', goals: 3, assists: 2 },
+      { name: 'Sancho', goals: 1, assists: 0 },
+      { name: 'Hamed', goals: 0, assists: 1 },
+      { name: 'Hajali', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'Y A D',
+    farsiName: 'یاد',
+    goals: 8,
+    assists: 6,
+    totalPoints: 14,
+    players: [
+      { name: 'Parsa / ParsaMadayeni', goals: 5, assists: 1 },
+      { name: 'Mikh', goals: 2, assists: 3 },
+      { name: 'SINA', goals: 1, assists: 0 },
+      { name: 'beny', goals: 0, assists: 1 },
+      { name: 'Sa1rosh', goals: 0, assists: 1 },
+      { name: 'L E B R O N', goals: 0, assists: 1 }
     ]
   },
   {
     teamName: 'AFTABESAZI',
     farsiName: 'آفتابسازی',
-    goals: 3,
-    assists: 3,
-    totalPoints: 6,
+    goals: 6,
+    assists: 5,
+    totalPoints: 11,
     players: [
-      { name: 'Matiniam', goals: 1, assists: 0 },
+      { name: 'Alireza.dr', goals: 2, assists: 0 },
+      { name: 'Matiniam', goals: 1, assists: 1 },
       { name: 'Ardalan', goals: 1, assists: 1 },
       { name: 'Hosi', goals: 1, assists: 0 },
+      { name: 'Nazario', goals: 1, assists: 0 },
       { name: 'Ariandan', goals: 0, assists: 1 },
-      { name: 'Mobin', goals: 0, assists: 1 }
+      { name: 'Mobin', goals: 0, assists: 1 },
+      { name: 'KAKA', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'DARYASALAR',
+    farsiName: 'دریا سالار',
+    goals: 5,
+    assists: 6,
+    totalPoints: 11,
+    players: [
+      { name: 'NAPOLEON', goals: 2, assists: 1 },
+      { name: 'Matiniam', goals: 1, assists: 2 },
+      { name: 'ymehapy', goals: 1, assists: 1 },
+      { name: 'xARVININOx', goals: 1, assists: 0 },
+      { name: 'RezaCityzen', goals: 0, assists: 1 },
+      { name: 'ARVIN MC', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'FESHAR UTD',
+    farsiName: 'فشار یونایتد',
+    goals: 5,
+    assists: 5,
+    totalPoints: 10,
+    players: [
+      { name: 'Mamadshakib', goals: 2, assists: 0 },
+      { name: 'Zix9', goals: 2, assists: 2 },
+      { name: 'Khafandinho', goals: 1, assists: 1 },
+      { name: 'Hami', goals: 0, assists: 2 }
     ]
   },
   {
@@ -1093,6 +1160,42 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
+    teamName: 'SOROUSHFC',
+    farsiName: 'سروش اف‌سی',
+    goals: 2,
+    assists: 1,
+    totalPoints: 3,
+    players: [
+      { name: 'parsa', goals: 1, assists: 0 },
+      { name: 'bb radin', goals: 1, assists: 0 },
+      { name: 'Pogba', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'KAKASIAH',
+    farsiName: 'کاکا سیاه',
+    goals: 2,
+    assists: 2,
+    totalPoints: 4,
+    players: [
+      { name: 'Zare', goals: 2, assists: 0 },
+      { name: 'MOOSAZADEH', goals: 0, assists: 2 }
+    ]
+  },
+  {
+    teamName: 'MATADORIR',
+    farsiName: 'ماتادور',
+    goals: 2,
+    assists: 2,
+    totalPoints: 4,
+    players: [
+      { name: 'Matador', goals: 1, assists: 0 },
+      { name: 'Parham', goals: 1, assists: 0 },
+      { name: 'Naghib', goals: 0, assists: 1 },
+      { name: 'ZZZ', goals: 0, assists: 1 }
+    ]
+  },
+  {
     teamName: 'ALNAHD',
     farsiName: 'النهض',
     goals: 1,
@@ -1105,14 +1208,13 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
-    teamName: 'MATADORIR',
-    farsiName: 'ماتادور',
+    teamName: 'AZABE ELAHI',
+    farsiName: 'عذاب الهی',
     goals: 1,
-    assists: 1,
-    totalPoints: 2,
+    assists: 0,
+    totalPoints: 1,
     players: [
-      { name: 'Matador', goals: 1, assists: 0 },
-      { name: 'Naghib', goals: 0, assists: 1 }
+      { name: 'Xbio', goals: 1, assists: 0 }
     ]
   },
   {
