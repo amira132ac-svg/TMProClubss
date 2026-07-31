@@ -25,7 +25,7 @@ export interface Player {
   goals: number;
   assists: number;
   matchesPlayed: number;
-  position: string;
+  position?: string;
   avatar: string;
 }
 
@@ -44,7 +44,7 @@ export interface Match {
   status: MatchStatus;
   date: string;
   time: string;
-  day?: 'Sunday' | 'Monday' | 'Tuesday' | 'TBD';
+  day?: 'Saturday' | 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'TBD';
 }
 
 export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare';

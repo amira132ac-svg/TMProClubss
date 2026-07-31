@@ -25,6 +25,7 @@ export const FixturesTab: React.FC<FixturesTabProps> = ({
 
   const dayOptions = [
     { id: 'ALL', label: t.allDays },
+    { id: 'Saturday', label: t.daySaturday || 'Saturday' },
     { id: 'Sunday', label: t.daySunday },
     { id: 'Monday', label: t.dayMonday },
     { id: 'Tuesday', label: t.dayTuesday },

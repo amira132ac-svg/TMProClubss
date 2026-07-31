@@ -54,6 +54,7 @@ export const translations = {
     daySunday: 'Sunday',
     dayMonday: 'Monday',
     dayTuesday: 'Tuesday',
+    daySaturday: 'Saturday',
     dayTBD: 'TBD',
 
     // Stats Tab
@@ -146,6 +147,7 @@ export const translations = {
     daySunday: 'یکشنبه',
     dayMonday: 'دوشنبه',
     dayTuesday: 'سه‌شنبه',
+    daySaturday: 'شنبه',
     dayTBD: 'نامشخص',
 
     // Stats Tab

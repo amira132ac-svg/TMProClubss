@@ -116,13 +116,8 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
 
                       {/* Player Name */}
                       <td className="py-3 px-3 font-semibold text-white">
-                        <div>
-                          <div className="hover:text-[#38BDF8] transition-colors">
-                            {player.name}
-                          </div>
-                          <div className="text-[11px] text-[#94A3B8] font-normal">
-                            {player.position}
-                          </div>
+                        <div className="hover:text-[#38BDF8] transition-colors">
+                          {player.name}
                         </div>
                       </td>
 
@@ -201,13 +196,8 @@ export const StatsTab: React.FC<StatsTabProps> = ({ topScorers, topAssists }) =>
 
                       {/* Player Name */}
                       <td className="py-3 px-3 font-semibold text-white">
-                        <div>
-                          <div className="hover:text-[#38BDF8] transition-colors">
-                            {player.name}
-                          </div>
-                          <div className="text-[11px] text-[#94A3B8] font-normal">
-                            {player.position}
-                          </div>
+                        <div className="hover:text-[#38BDF8] transition-colors">
+                          {player.name}
                         </div>
                       </td>
 
