@@ -13,9 +13,12 @@ import { SponsorFooter } from './components/SponsorFooter';
 import { InstallModal } from './components/InstallModal';
 import { TeamModal } from './components/TeamModal';
 import { EditMatchModal } from './components/EditMatchModal';
+import { SiteClosedScreen } from './components/SiteClosedScreen';
 import { soundManager } from './utils/audio';
+import { Lock, Unlock } from 'lucide-react';
 
 export default function App() {
+  const [isSiteClosed, setIsSiteClosed] = useState(true);
   const [activeTab, setActiveTab] = useState<ActiveTab>('groups');
   const [teams, setTeams] = useState<Team[]>(() => computeStandings(initialTeams, initialMatches));
   const [matches, setMatches] = useState<Match[]>(initialMatches);
@@ -88,84 +91,109 @@ export default function App() {
       {/* Background Particle Embers */}
       <EmbersCanvas />
 
-      {/* Main Content Wrap */}
-      <div>
-        {/* Header */}
-        <Header
-          onOpenInstallModal={() => setIsInstallModalOpen(true)}
-          soundEnabled={soundEnabled}
-          onToggleSound={handleToggleSound}
-          isAdminMode={isAdminMode}
-          onToggleAdminMode={() => setIsAdminMode(!isAdminMode)}
-        />
+      {/* If site is closed, render Site Closed Screen */}
+      {isSiteClosed ? (
+        <SiteClosedScreen onBypass={() => setIsSiteClosed(false)} />
+      ) : (
+        <>
+          {/* Top Admin Bar when site is unlocked */}
+          <div className="bg-[#10173A] border-b border-[#F59E0B]/30 px-4 py-2 flex items-center justify-between text-xs text-[#F59E0B] relative z-20">
+            <div className="flex items-center gap-2">
+              <Unlock className="w-3.5 h-3.5 text-[#F59E0B]" />
+              <span className="font-bold">دسترس مدیریت فعال است (سایت برای کاربران عمومی بسته می‌باشد)</span>
+            </div>
+            <button
+              onClick={() => {
+                soundManager.playUiClick();
+                setIsSiteClosed(true);
+              }}
+              className="px-2.5 py-1 bg-[#1E2E6E] hover:bg-rose-900/60 border border-rose-500/40 text-rose-300 font-bold rounded-lg flex items-center gap-1 transition-colors"
+            >
+              <Lock className="w-3 h-3" />
+              <span>بستن مجدد سایت</span>
+            </button>
+          </div>
 
-        {/* Navigation Tabs */}
-        <Navigation
-          activeTab={activeTab}
-          onTabChange={(tab) => setActiveTab(tab)}
-        />
-
-        {/* Tab View Content */}
-        <main className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 py-4">
-          {activeTab === 'groups' && (
-            <GroupsTab
-              teams={teams}
-              onSelectTeam={(team) => setSelectedTeam(team)}
-            />
-          )}
-
-          {activeTab === 'stats' && (
-            <StatsTab
-              topScorers={topScorers}
-              topAssists={topAssists}
-            />
-          )}
-
-          {activeTab === 'fixtures' && (
-            <FixturesTab
-              matches={matches}
+          {/* Main Content Wrap */}
+          <div>
+            {/* Header */}
+            <Header
+              onOpenInstallModal={() => setIsInstallModalOpen(true)}
+              soundEnabled={soundEnabled}
+              onToggleSound={handleToggleSound}
               isAdminMode={isAdminMode}
-              onEditMatch={(match) => setEditingMatch(match)}
-              lastUpdatedMatchId={lastUpdatedMatchId}
+              onToggleAdminMode={() => setIsAdminMode(!isAdminMode)}
             />
-          )}
 
-          {activeTab === 'compare' && (
-            <TeamCompareTab
-              teams={teams}
-              matches={matches}
-              players={[...topScorers, ...topAssists]}
+            {/* Navigation Tabs */}
+            <Navigation
+              activeTab={activeTab}
+              onTabChange={(tab) => setActiveTab(tab)}
             />
-          )}
-        </main>
 
-        {/* Share Box */}
-        <ShareBox />
-      </div>
+            {/* Tab View Content */}
+            <main className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 py-4">
+              {activeTab === 'groups' && (
+                <GroupsTab
+                  teams={teams}
+                  onSelectTeam={(team) => setSelectedTeam(team)}
+                />
+              )}
 
-      {/* Sponsor Footer */}
-      <SponsorFooter />
+              {activeTab === 'stats' && (
+                <StatsTab
+                  topScorers={topScorers}
+                  topAssists={topAssists}
+                />
+              )}
 
-      {/* Modals */}
-      <InstallModal
-        isOpen={isInstallModalOpen}
-        onClose={() => setIsInstallModalOpen(false)}
-        deferredPrompt={deferredPrompt}
-        onNativeInstall={handleNativeInstall}
-      />
+              {activeTab === 'fixtures' && (
+                <FixturesTab
+                  matches={matches}
+                  isAdminMode={isAdminMode}
+                  onEditMatch={(match) => setEditingMatch(match)}
+                  lastUpdatedMatchId={lastUpdatedMatchId}
+                />
+              )}
 
-      <TeamModal
-        team={selectedTeam}
-        onClose={() => setSelectedTeam(null)}
-        matches={matches}
-        players={[...topScorers, ...topAssists]}
-      />
+              {activeTab === 'compare' && (
+                <TeamCompareTab
+                  teams={teams}
+                  matches={matches}
+                  players={[...topScorers, ...topAssists]}
+                />
+              )}
+            </main>
 
-      <EditMatchModal
-        match={editingMatch}
-        onClose={() => setEditingMatch(null)}
-        onSave={handleSaveMatch}
-      />
+            {/* Share Box */}
+            <ShareBox />
+          </div>
+
+          {/* Sponsor Footer */}
+          <SponsorFooter />
+
+          {/* Modals */}
+          <InstallModal
+            isOpen={isInstallModalOpen}
+            onClose={() => setIsInstallModalOpen(false)}
+            deferredPrompt={deferredPrompt}
+            onNativeInstall={handleNativeInstall}
+          />
+
+          <TeamModal
+            team={selectedTeam}
+            onClose={() => setSelectedTeam(null)}
+            matches={matches}
+            players={[...topScorers, ...topAssists]}
+          />
+
+          <EditMatchModal
+            match={editingMatch}
+            onClose={() => setEditingMatch(null)}
+            onSave={handleSaveMatch}
+          />
+        </>
+      )}
 
     </div>
   );
