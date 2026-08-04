@@ -44,7 +44,7 @@ export interface Match {
   status: MatchStatus;
   date: string;
   time: string;
-  day?: 'Saturday' | 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'TBD';
+  day?: 'Saturday' | 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'TBD' | string;
 }
 
 export type ActiveTab = 'groups' | 'stats' | 'fixtures' | 'compare';

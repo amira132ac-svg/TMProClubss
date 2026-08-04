@@ -18,7 +18,7 @@ import { soundManager } from './utils/audio';
 import { Lock, Unlock } from 'lucide-react';
 
 export default function App() {
-  const [isSiteClosed, setIsSiteClosed] = useState(true);
+  const [isSiteClosed, setIsSiteClosed] = useState(false);
   const [activeTab, setActiveTab] = useState<ActiveTab>('groups');
   const [teams, setTeams] = useState<Team[]>(() => computeStandings(initialTeams, initialMatches));
   const [matches, setMatches] = useState<Match[]>(initialMatches);
@@ -96,24 +96,6 @@ export default function App() {
         <SiteClosedScreen onBypass={() => setIsSiteClosed(false)} />
       ) : (
         <>
-          {/* Top Admin Bar when site is unlocked */}
-          <div className="bg-[#10173A] border-b border-[#F59E0B]/30 px-4 py-2 flex items-center justify-between text-xs text-[#F59E0B] relative z-20">
-            <div className="flex items-center gap-2">
-              <Unlock className="w-3.5 h-3.5 text-[#F59E0B]" />
-              <span className="font-bold">دسترس مدیریت فعال است (سایت برای کاربران عمومی بسته می‌باشد)</span>
-            </div>
-            <button
-              onClick={() => {
-                soundManager.playUiClick();
-                setIsSiteClosed(true);
-              }}
-              className="px-2.5 py-1 bg-[#1E2E6E] hover:bg-rose-900/60 border border-rose-500/40 text-rose-300 font-bold rounded-lg flex items-center gap-1 transition-colors"
-            >
-              <Lock className="w-3 h-3" />
-              <span>بستن مجدد سایت</span>
-            </button>
-          </div>
-
           {/* Main Content Wrap */}
           <div>
             {/* Header */}
