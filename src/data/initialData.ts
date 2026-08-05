@@ -679,12 +679,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-a4',
     homeTeamName: 'GORGALI FC',
     awayTeamName: 'MATADORIR',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 0,
+    awayScore: 5,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '11:30'
+    time: 'FT'
   },
   {
     id: 'm-up-a-2',
@@ -694,12 +694,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-a3',
     homeTeamName: 'PERSIANEMPIRE',
     awayTeamName: 'AFTABESAZI',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 1,
+    awayScore: 4,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '11:30'
+    time: 'FT'
   },
   {
     id: 'm-up-a-3',
@@ -937,12 +937,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-b2',
     homeTeamName: 'ALNAHD',
     awayTeamName: 'SPIRITS',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 9,
+    awayScore: 0,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '11:30'
+    time: 'FT'
   },
   {
     id: 'm-up-b-2',
@@ -952,12 +952,27 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-b5',
     homeTeamName: 'ALNAHD',
     awayTeamName: 'A R Y A',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '00:30'
+    time: 'FT'
+  },
+  {
+    id: 'm-up-b-6',
+    group: 'B',
+    round: 6,
+    homeTeamId: 'team-b6',
+    awayTeamId: 'team-b7',
+    homeTeamName: 'ALNAHD',
+    awayTeamName: 'BELAAD',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
   },
   {
     id: 'm-up-b-3',
@@ -1225,12 +1240,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-c3',
     homeTeamName: 'BAY CLUB',
     awayTeamName: 'SOROUSHFC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 0,
+    awayScore: 4,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '11:00'
+    time: 'FT'
   },
   {
     id: 'm-up-c-2',
@@ -1240,12 +1255,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-c4',
     homeTeamName: 'AZADI',
     awayTeamName: 'TAPE',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 2,
+    awayScore: 1,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '11:59'
+    time: 'FT'
   },
   {
     id: 'm-up-c-3',
@@ -1255,12 +1270,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-c3',
     homeTeamName: 'PERSIANGULF',
     awayTeamName: 'SOROUSHFC',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 0,
+    awayScore: 3,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '11:59'
+    time: 'FT'
   },
   {
     id: 'm-up-c-4',
@@ -1270,12 +1285,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-c1',
     homeTeamName: 'TAPE',
     awayTeamName: 'PERSIANGULF',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 1,
+    awayScore: 1,
+    status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
-    time: '00:30'
+    time: 'FT'
   },
 
   // GROUP D MATCHES
