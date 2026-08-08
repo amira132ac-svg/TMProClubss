@@ -326,6 +326,7 @@ export const initialTeams: Team[] = [
     points: 0,
     form: []
   },
+
   {
     id: 'team-c7',
     name: 'AZADI',
@@ -731,6 +732,51 @@ export const initialMatches: Match[] = [
     day: 'Wednesday',
     time: 'FT'
   },
+  {
+    id: 'm-up-a-5',
+    group: 'A',
+    round: 7,
+    homeTeamId: 'team-a5',
+    awayTeamId: 'team-a6',
+    homeTeamName: 'CHAEE KHORAN',
+    awayTeamName: 'ULTIMO BAILE',
+    homeScore: 4,
+    awayScore: 2,
+    status: 'finished',
+    date: 'Friday',
+    day: 'Friday',
+    time: 'FT'
+  },
+  {
+    id: 'm-up-a-6',
+    group: 'A',
+    round: 7,
+    homeTeamId: 'team-a7',
+    awayTeamId: 'team-a4',
+    homeTeamName: 'TITANS',
+    awayTeamName: 'MATADORIR',
+    homeScore: 4,
+    awayScore: 2,
+    status: 'finished',
+    date: 'Friday',
+    day: 'Friday',
+    time: 'FT'
+  },
+  {
+    id: 'm-up-a-7',
+    group: 'A',
+    round: 7,
+    homeTeamId: 'team-a1',
+    awayTeamId: 'team-a2',
+    homeTeamName: 'PERSIANEMPIRE',
+    awayTeamName: 'GORGALI FC',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Friday',
+    day: 'Friday',
+    time: 'FT'
+  },
 
   // GROUP B MATCHES
   {
@@ -1042,12 +1088,12 @@ export const initialMatches: Match[] = [
     awayTeamId: 'team-b2',
     homeTeamName: 'MESSHAHRBABAK',
     awayTeamName: 'SPIRITS',
-    homeScore: null,
-    awayScore: null,
-    status: 'upcoming',
+    homeScore: 2,
+    awayScore: 1,
+    status: 'finished',
     date: 'Friday',
     day: 'Friday',
-    time: '10:10'
+    time: 'FT'
   },
 
   // GROUP C MATCHES
@@ -1094,21 +1140,6 @@ export const initialMatches: Match[] = [
     status: 'finished',
     date: 'Monday',
     day: 'Monday',
-    time: 'FT'
-  },
-  {
-    id: 'm-tue-2',
-    group: 'C',
-    round: 2,
-    homeTeamId: 'team-c3',
-    awayTeamId: 'team-c6',
-    homeTeamName: 'SOROUSHFC',
-    awayTeamName: 'AZABE ELAHI',
-    homeScore: 2,
-    awayScore: 1,
-    status: 'finished',
-    date: 'Tuesday',
-    day: 'Tuesday',
     time: 'FT'
   },
   {
@@ -1172,21 +1203,6 @@ export const initialMatches: Match[] = [
     time: 'FT'
   },
   {
-    id: 'm-sat-c-1',
-    group: 'C',
-    round: 3,
-    homeTeamId: 'team-c6',
-    awayTeamId: 'team-c4',
-    homeTeamName: 'AZABE ELAHI',
-    awayTeamName: 'TAPE',
-    homeScore: 0,
-    awayScore: 3,
-    status: 'finished',
-    date: 'Saturday',
-    day: 'Saturday',
-    time: 'FT'
-  },
-  {
     id: 'm-sat-c-2',
     group: 'C',
     round: 3,
@@ -1196,21 +1212,6 @@ export const initialMatches: Match[] = [
     awayTeamName: 'VANGUARD FC',
     homeScore: 6,
     awayScore: 1,
-    status: 'finished',
-    date: 'Saturday',
-    day: 'Saturday',
-    time: 'FT'
-  },
-  {
-    id: 'm-sat-c-3',
-    group: 'C',
-    round: 3,
-    homeTeamId: 'team-c6',
-    awayTeamId: 'team-c1',
-    homeTeamName: 'AZABE ELAHI',
-    awayTeamName: 'PERSIANGULF',
-    homeScore: 0,
-    awayScore: 3,
     status: 'finished',
     date: 'Saturday',
     day: 'Saturday',
@@ -1320,6 +1321,96 @@ export const initialMatches: Match[] = [
     status: 'finished',
     date: 'Tuesday',
     day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-c-aza-1',
+    group: 'C',
+    round: 7,
+    homeTeamId: 'team-c3',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'SOROUSHFC',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 2,
+    awayScore: 1,
+    status: 'finished',
+    date: 'Tuesday',
+    day: 'Tuesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-c-aza-2',
+    group: 'C',
+    round: 7,
+    homeTeamId: 'team-c4',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'TAPE',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Wednesday',
+    day: 'Wednesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-c-aza-3',
+    group: 'C',
+    round: 7,
+    homeTeamId: 'team-c1',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'PERSIANGULF',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Wednesday',
+    day: 'Wednesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-c-aza-4',
+    group: 'C',
+    round: 7,
+    homeTeamId: 'team-c2',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'VANGUARD FC',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Wednesday',
+    day: 'Wednesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-c-aza-5',
+    group: 'C',
+    round: 7,
+    homeTeamId: 'team-c5',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'BAY CLUB',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Wednesday',
+    day: 'Wednesday',
+    time: 'FT'
+  },
+  {
+    id: 'm-c-aza-6',
+    group: 'C',
+    round: 7,
+    homeTeamId: 'team-c7',
+    awayTeamId: 'team-c6',
+    homeTeamName: 'AZADI',
+    awayTeamName: 'AZABE ELAHI',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Wednesday',
+    day: 'Wednesday',
     time: 'FT'
   },
 
@@ -1594,6 +1685,51 @@ export const initialMatches: Match[] = [
     date: 'Wednesday',
     day: 'Wednesday',
     time: 'FT'
+  },
+  {
+    id: 'm-up-d-4',
+    group: 'D',
+    round: 7,
+    homeTeamId: 'team-d4',
+    awayTeamId: 'team-d7',
+    homeTeamName: 'VIKINGS',
+    awayTeamName: 'RMP FC',
+    homeScore: 3,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Friday',
+    day: 'Friday',
+    time: 'FT'
+  },
+  {
+    id: 'm-up-d-5',
+    group: 'D',
+    round: 7,
+    homeTeamId: 'team-d6',
+    awayTeamId: 'team-d5',
+    homeTeamName: 'FESHAR UTD',
+    awayTeamName: 'Y A D',
+    homeScore: 0,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Friday',
+    day: 'Friday',
+    time: 'FT'
+  },
+  {
+    id: 'm-up-d-6',
+    group: 'D',
+    round: 7,
+    homeTeamId: 'team-d2',
+    awayTeamId: 'team-d1',
+    homeTeamName: 'YOUNG WIZARD',
+    awayTeamName: 'KAKASIAH',
+    homeScore: 0,
+    awayScore: 0,
+    status: 'finished',
+    date: 'Friday',
+    day: 'Friday',
+    time: 'FT'
   }
 ];
 
@@ -1603,10 +1739,40 @@ export const initialTopScorers: Player[] = [
     name: 'Parsa / ParsaMadayeni',
     teamId: 'team-d5',
     teamName: 'Y A D',
-    goals: 12,
+    goals: 21,
     assists: 1,
     matchesPlayed: 4,
     avatar: '👑'
+  },
+  {
+    id: 'p-kaka-moos',
+    name: 'Moosazadeh / MOOSAZADEH',
+    teamId: 'team-a6',
+    teamName: 'Kakasiah',
+    goals: 13,
+    assists: 4,
+    matchesPlayed: 4,
+    avatar: '🎯'
+  },
+  {
+    id: 'p-feshar-1',
+    name: 'Zix9',
+    teamId: 'team-d6',
+    teamName: 'feshar united / Feshar UTD',
+    goals: 11,
+    assists: 2,
+    matchesPlayed: 4,
+    avatar: '🔥'
+  },
+  {
+    id: 'p-baile-1',
+    name: 'Mz',
+    teamId: 'team-c3',
+    teamName: 'Baile / Ultimo Baile',
+    goals: 10,
+    assists: 1,
+    matchesPlayed: 4,
+    avatar: '⚡'
   },
   {
     id: 'p-azadi-1',
@@ -1615,38 +1781,18 @@ export const initialTopScorers: Player[] = [
     teamName: 'A Z A D I',
     goals: 8,
     assists: 3,
-    matchesPlayed: 3,
+    matchesPlayed: 4,
     avatar: '⚽'
   },
   {
     id: 'p-sourosh-1',
     name: 'bb radin',
     teamId: 'team-c3',
-    teamName: 'Sourosh fc / TehranLegacy',
+    teamName: 'Soroush / TehranLegacy',
     goals: 8,
     assists: 2,
     matchesPlayed: 4,
     avatar: '⭐'
-  },
-  {
-    id: 'p-feshar-1',
-    name: 'Zix9',
-    teamId: 'team-d6',
-    teamName: 'feshar united',
-    goals: 7,
-    assists: 2,
-    matchesPlayed: 4,
-    avatar: '🔥'
-  },
-  {
-    id: 'p-nahd-1',
-    name: 'Mehrshwd',
-    teamId: 'team-b7',
-    teamName: 'alnahd',
-    goals: 6,
-    assists: 1,
-    matchesPlayed: 3,
-    avatar: '⚡'
   },
   {
     id: 'p-azadi-2',
@@ -1655,7 +1801,7 @@ export const initialTopScorers: Player[] = [
     teamName: 'A Z A D I',
     goals: 6,
     assists: 3,
-    matchesPlayed: 3,
+    matchesPlayed: 4,
     avatar: '🐰'
   },
   {
@@ -1669,14 +1815,24 @@ export const initialTopScorers: Player[] = [
     avatar: '🌟'
   },
   {
-    id: 'p-kaka-moos',
-    name: 'Moosazadeh / MOOSAZADEH',
-    teamId: 'team-a6',
-    teamName: 'kakasiah',
-    goals: 5,
-    assists: 3,
+    id: 'p-nahd-1',
+    name: 'Mehrshwd',
+    teamId: 'team-b7',
+    teamName: 'alnahd / ALNAHD',
+    goals: 6,
+    assists: 1,
     matchesPlayed: 4,
-    avatar: '🎯'
+    avatar: '⚡'
+  },
+  {
+    id: 'p-chaee-sab',
+    name: 'Sabeti / Sabetii',
+    teamId: 'team-a5',
+    teamName: 'chaeekhoran',
+    goals: 6,
+    assists: 2,
+    matchesPlayed: 4,
+    avatar: '⚽'
   },
   {
     id: 'p-titans-2',
@@ -1692,101 +1848,71 @@ export const initialTopScorers: Player[] = [
     id: 'p-aft-1',
     name: 'Ardalan',
     teamId: 'team-a3',
-    teamName: 'Aftabesazi',
+    teamName: 'Aftabe sazi',
     goals: 5,
     assists: 2,
     matchesPlayed: 4,
     avatar: '⚡'
   },
   {
-    id: 'p-chaee-1',
-    name: 'Kiarash',
-    teamId: 'team-a5',
-    teamName: 'chaeekhoran',
-    goals: 4,
-    assists: 4,
-    matchesPlayed: 4,
-    avatar: '🍵'
-  },
-  {
-    id: 'p-chaee-sab',
-    name: 'Sabeti / Sabetii',
-    teamId: 'team-a5',
-    teamName: 'chaeekhoran',
-    goals: 4,
-    assists: 2,
-    matchesPlayed: 4,
-    avatar: '⚽'
-  },
-  {
-    id: 'p-baile-1',
-    name: 'Mz',
-    teamId: 'team-c3',
-    teamName: 'Baile',
-    goals: 4,
-    assists: 0,
-    matchesPlayed: 3,
-    avatar: '⚡'
-  },
-  {
-    id: 'p-nahd-2',
-    name: 'Shakeri',
-    teamId: 'team-b7',
-    teamName: 'alnahd',
-    goals: 4,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '🎯'
-  },
-  {
-    id: 'p-yad-2',
-    name: 'Mikh',
-    teamId: 'team-d5',
-    teamName: 'Y A D',
-    goals: 4,
-    assists: 3,
-    matchesPlayed: 4,
-    avatar: '🪄'
-  },
-  {
-    id: 'p-azadi-3',
-    name: 'X-MORTEZA',
-    teamId: 'team-c7',
-    teamName: 'A Z A D I',
-    goals: 4,
-    assists: 4,
-    matchesPlayed: 3,
-    avatar: '⚡'
-  },
-  {
-    id: 'p-vks-1',
-    name: 'Hosseinarya',
-    teamId: 'team-d4',
-    teamName: 'viking',
-    goals: 4,
-    assists: 3,
-    matchesPlayed: 2,
-    avatar: '⚡'
-  },
-  {
-    id: 'p-aft-2',
-    name: 'Matiniam / Matiniam27',
-    teamId: 'team-a3',
-    teamName: 'Aftabesazi',
-    goals: 4,
-    assists: 4,
-    matchesPlayed: 4,
-    avatar: '🎯'
-  },
-  {
-    id: 'p-yw-1',
-    name: 'AmirAli',
+    id: 'p-yw-2',
+    name: 'GORCC',
     teamId: 'team-d2',
-    teamName: 'Youngwizard',
+    teamName: 'Youngwizard / Young Wiz',
+    goals: 5,
+    assists: 4,
+    matchesPlayed: 4,
+    avatar: '🎯'
+  },
+  {
+    id: 'p-tape-1',
+    name: 'rjb',
+    teamId: 'team-c4',
+    teamName: 'tape / Tape',
+    goals: 5,
+    assists: 5,
+    matchesPlayed: 4,
+    avatar: '🏹'
+  },
+  {
+    id: 'p-kaka-zare',
+    name: 'Zare',
+    teamId: 'team-a6',
+    teamName: 'Kakasiah',
     goals: 4,
+    assists: 9,
+    matchesPlayed: 4,
+    avatar: '⚡'
+  },
+  {
+    id: 'p-tape-asap',
+    name: 'ASAp',
+    teamId: 'team-c4',
+    teamName: 'tape / Tape',
+    goals: 3,
     assists: 1,
-    matchesPlayed: 3,
-    avatar: '🪄'
+    matchesPlayed: 4,
+    avatar: '🎯'
+  },
+  {
+    id: 'p-kaka-malmir',
+    name: 'Malmir',
+    teamId: 'team-a6',
+    teamName: 'Kakasiah',
+    goals: 3,
+    assists: 5,
+    matchesPlayed: 4,
+    avatar: '🛡️'
+  },
+  {
+    id: 'p-aft-pars',
+    name: 'parsaxbio / Parsa',
+    teamId: 'team-a3',
+    teamName: 'Aftabe sazi',
+    goals: 3,
+    assists: 0,
+    matchesPlayed: 4,
+    avatar: '⭐'
   }
 ];
 
@@ -1795,11 +1921,21 @@ export const initialTopAssists: Player[] = [
     id: 'p-kaka-zare',
     name: 'Zare',
     teamId: 'team-a6',
-    teamName: 'kakasiah',
-    goals: 3,
-    assists: 4,
+    teamName: 'Kakasiah',
+    goals: 4,
+    assists: 9,
     matchesPlayed: 4,
     avatar: '⚡'
+  },
+  {
+    id: 'p-yad-4',
+    name: 'Beny / beny',
+    teamId: 'team-d5',
+    teamName: 'Y A D',
+    goals: 2,
+    assists: 8,
+    matchesPlayed: 4,
+    avatar: '✨'
   },
   {
     id: 'p-chaee-1',
@@ -1807,19 +1943,69 @@ export const initialTopAssists: Player[] = [
     teamId: 'team-a5',
     teamName: 'chaeekhoran',
     goals: 4,
-    assists: 4,
+    assists: 6,
     matchesPlayed: 4,
     avatar: '🍵'
+  },
+  {
+    id: 'p-feshar-2',
+    name: 'Mamadshakib / MamadShakib',
+    teamId: 'team-d6',
+    teamName: 'feshar united / Feshar UTD',
+    goals: 2,
+    assists: 6,
+    matchesPlayed: 4,
+    avatar: '🔥'
+  },
+  {
+    id: 'p-baile-2',
+    name: '26 ta',
+    teamId: 'team-c3',
+    teamName: 'Baile / Ultimo Baile',
+    goals: 2,
+    assists: 6,
+    matchesPlayed: 4,
+    avatar: '🎯'
+  },
+  {
+    id: 'p-tape-1',
+    name: 'rjb',
+    teamId: 'team-c4',
+    teamName: 'tape / Tape',
+    goals: 5,
+    assists: 5,
+    matchesPlayed: 4,
+    avatar: '🏹'
+  },
+  {
+    id: 'p-kaka-malmir',
+    name: 'Malmir',
+    teamId: 'team-a6',
+    teamName: 'Kakasiah',
+    goals: 3,
+    assists: 5,
+    matchesPlayed: 4,
+    avatar: '🛡️'
   },
   {
     id: 'p-yw-2',
     name: 'GORCC',
     teamId: 'team-d2',
-    teamName: 'Youngwizard',
-    goals: 3,
+    teamName: 'Youngwizard / Young Wiz',
+    goals: 5,
     assists: 4,
-    matchesPlayed: 3,
+    matchesPlayed: 4,
     avatar: '🎯'
+  },
+  {
+    id: 'p-yw-3',
+    name: 'AiMaR',
+    teamId: 'team-d2',
+    teamName: 'Youngwizard / Young Wiz',
+    goals: 0,
+    assists: 4,
+    matchesPlayed: 4,
+    avatar: '🪄'
   },
   {
     id: 'p-azadi-3',
@@ -1828,18 +2014,8 @@ export const initialTopAssists: Player[] = [
     teamName: 'A Z A D I',
     goals: 4,
     assists: 4,
-    matchesPlayed: 3,
+    matchesPlayed: 4,
     avatar: '⚡'
-  },
-  {
-    id: 'p-tape-1',
-    name: 'rjb',
-    teamId: 'team-c4',
-    teamName: 'tape',
-    goals: 3,
-    assists: 4,
-    matchesPlayed: 3,
-    avatar: '🏹'
   },
   {
     id: 'p-azadi-4',
@@ -1848,198 +2024,68 @@ export const initialTopAssists: Player[] = [
     teamName: 'A Z A D I',
     goals: 0,
     assists: 4,
-    matchesPlayed: 3,
-    avatar: '🪄'
-  },
-  {
-    id: 'p-feshar-2',
-    name: 'Mamadshakib / MamadShakib',
-    teamId: 'team-d6',
-    teamName: 'feshar united',
-    goals: 2,
-    assists: 4,
     matchesPlayed: 4,
-    avatar: '🔥'
+    avatar: '🪄'
   },
   {
     id: 'p-aft-2',
-    name: 'Matiniam / Matiniam27',
+    name: 'Matiniam / Matiniam27 / Matinam',
     teamId: 'team-a3',
-    teamName: 'Aftabesazi',
+    teamName: 'Aftabe sazi / darya salar fc',
     goals: 4,
     assists: 4,
     matchesPlayed: 4,
     avatar: '🎯'
   },
   {
-    id: 'p-baile-2',
-    name: '26 ta',
-    teamId: 'team-c3',
-    teamName: 'Baile',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '🎯'
-  },
-  {
-    id: 'p-yad-2',
-    name: 'Mikh',
-    teamId: 'team-d5',
-    teamName: 'Y A D',
-    goals: 4,
-    assists: 3,
-    matchesPlayed: 4,
-    avatar: '🪄'
-  },
-  {
-    id: 'p-chaee-2',
-    name: 'ALIREZA',
-    teamId: 'team-a5',
-    teamName: 'chaeekhoran',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 4,
-    avatar: '🎨'
-  },
-  {
-    id: 'p-nahd-2',
-    name: 'Shakeri',
-    teamId: 'team-b7',
-    teamName: 'alnahd',
-    goals: 4,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '🎯'
-  },
-  {
-    id: 'p-nahd-3',
-    name: 'Baller',
-    teamId: 'team-b7',
-    teamName: 'alnahd',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '⚽'
-  },
-  {
-    id: 'p-nahd-4',
-    name: 'Koloft',
-    teamId: 'team-b7',
-    teamName: 'alnahd',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '💪'
-  },
-  {
-    id: 'p-yad-4',
-    name: 'beny / Beny',
-    teamId: 'team-d5',
-    teamName: 'Y A D',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 4,
-    avatar: '✨'
-  },
-  {
-    id: 'p-aft-3',
-    name: 'Alireza.dr',
-    teamId: 'team-a3',
-    teamName: 'Aftabesazi',
+    id: 'p-matador-ronaldo',
+    name: 'ronaldo',
+    teamId: 'team-a4',
+    teamName: 'matadorir / MatadorIR',
     goals: 2,
-    assists: 3,
+    assists: 4,
     matchesPlayed: 4,
-    avatar: '🎯'
-  },
-  {
-    id: 'p-aft-4',
-    name: 'Ariandan',
-    teamId: 'team-a3',
-    teamName: 'Aftabesazi',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 4,
-    avatar: '🎨'
-  },
-  {
-    id: 'p-azadi-1',
-    name: 'Ehsan raeisi / Ehsan',
-    teamId: 'team-c7',
-    teamName: 'A Z A D I',
-    goals: 8,
-    assists: 3,
-    matchesPlayed: 3,
     avatar: '⚽'
-  },
-  {
-    id: 'p-azadi-2',
-    name: 'Rabbit XCII / Rabbit',
-    teamId: 'team-c7',
-    teamName: 'A Z A D I',
-    goals: 6,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '🐰'
-  },
-  {
-    id: 'p-azadi-5',
-    name: 'MRF76615 / Mrf',
-    teamId: 'team-c7',
-    teamName: 'A Z A D I',
-    goals: 1,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '🛡️'
-  },
-  {
-    id: 'p-msh-1',
-    name: 'babakop1',
-    teamId: 'team-b1',
-    teamName: 'Masshahr',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 2,
-    avatar: '🎯'
-  },
-  {
-    id: 'p-vks-1',
-    name: 'Hosseinarya',
-    teamId: 'team-d4',
-    teamName: 'viking',
-    goals: 4,
-    assists: 3,
-    matchesPlayed: 2,
-    avatar: '⚡'
-  },
-  {
-    id: 'p-yad-3',
-    name: 'L E B R O N',
-    teamId: 'team-d5',
-    teamName: 'Y A D',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 4,
-    avatar: '🏀'
-  },
-  {
-    id: 'p-yw-3',
-    name: 'AiMaR',
-    teamId: 'team-d2',
-    teamName: 'Youngwizard',
-    goals: 0,
-    assists: 3,
-    matchesPlayed: 3,
-    avatar: '🪄'
   },
   {
     id: 'p-kaka-moos',
     name: 'MOOSAZADEH / Moosazadeh',
     teamId: 'team-a6',
-    teamName: 'kakasiah',
-    goals: 5,
-    assists: 3,
+    teamName: 'Kakasiah',
+    goals: 13,
+    assists: 4,
     matchesPlayed: 4,
     avatar: '🎯'
+  },
+  {
+    id: 'p-baile-am6',
+    name: 'AM6',
+    teamId: 'team-c3',
+    teamName: 'Baile / Ultimo Baile',
+    goals: 3,
+    assists: 4,
+    matchesPlayed: 4,
+    avatar: '🎨'
+  },
+  {
+    id: 'p-tape-bellingham',
+    name: 'BELLINGHAM / Bellingham',
+    teamId: 'team-c4',
+    teamName: 'tape / Tape',
+    goals: 2,
+    assists: 3,
+    matchesPlayed: 4,
+    avatar: '💫'
+  },
+  {
+    id: 'p-baile-khoda',
+    name: 'KHODA',
+    teamId: 'team-c3',
+    teamName: 'Ultimo Baile',
+    goals: 0,
+    assists: 3,
+    matchesPlayed: 4,
+    avatar: '👑'
   }
 ];
 
@@ -2060,27 +2106,62 @@ export interface TeamStatsSummary {
 
 export const initialTeamPlayerStats: TeamStatsSummary[] = [
   {
-    teamName: 'Aftabe sazi',
-    farsiName: 'آفتاب‌سازی',
-    goals: 21,
-    assists: 16,
-    totalPoints: 37,
+    teamName: 'Y A D',
+    farsiName: 'یاد',
+    goals: 28,
+    assists: 21,
+    totalPoints: 49,
     players: [
+      { name: 'Parsa / ParsaMadayeni', goals: 21, assists: 1 },
+      { name: 'Beny / beny', goals: 2, assists: 8 },
+      { name: 'Mikh', goals: 4, assists: 3 },
+      { name: 'L E B R O N', goals: 0, assists: 4 },
+      { name: 'Sa1rosh', goals: 0, assists: 2 },
+      { name: 'Mory Ariya', goals: 0, assists: 2 },
+      { name: 'Mahdad', goals: 1, assists: 1 },
+      { name: 'Majidi', goals: 1, assists: 0 },
+      { name: 'Javid shah', goals: 0, assists: 1 },
+      { name: 'SINA', goals: 1, assists: 0 },
+      { name: 'Dani Alves', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'Aftabe sazi / Aftafa',
+    farsiName: 'آفتاب‌سازی',
+    goals: 24,
+    assists: 18,
+    totalPoints: 42,
+    players: [
+      { name: 'parsaxbio / Parsa', goals: 3, assists: 0 },
       { name: 'Ardalan', goals: 5, assists: 2 },
-      { name: 'Matiniam27', goals: 4, assists: 2 },
-      { name: 'parsaxbio', goals: 3, assists: 0 },
+      { name: 'Matiniam / Matiniam27 / Matinam', goals: 4, assists: 3 },
       { name: 'Alireza.dr', goals: 2, assists: 3 },
-      { name: 'Bisc1t', goals: 1, assists: 1 },
+      { name: 'bisc1t / Bisc1t', goals: 2, assists: 2 },
+      { name: 'KAKA', goals: 2, assists: 1 },
+      { name: 'Nazario', goals: 1, assists: 2 },
       { name: 'Ashkan', goals: 1, assists: 1 },
-      { name: 'Nazario', goals: 1, assists: 1 },
       { name: 'Ariandan', goals: 0, assists: 3 },
       { name: 'Rashford', goals: 1, assists: 1 },
       { name: 'Armanx95', goals: 1, assists: 0 },
       { name: 'Badr', goals: 1, assists: 0 },
       { name: 'Sedghi', goals: 1, assists: 0 },
       { name: 'Hosi', goals: 1, assists: 0 },
-      { name: 'Mobin', goals: 0, assists: 1 },
-      { name: 'KAKA', goals: 0, assists: 1 }
+      { name: 'Mobin', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'Kalasiah / Kakasiah',
+    farsiName: 'کاکاسیاه',
+    goals: 20,
+    assists: 19,
+    totalPoints: 39,
+    players: [
+      { name: 'Moosazadeh / MOOSAZADEH', goals: 13, assists: 4 },
+      { name: 'Zare', goals: 4, assists: 9 },
+      { name: 'Malmir', goals: 3, assists: 5 },
+      { name: 'Andrade', goals: 1, assists: 2 },
+      { name: '26adad', goals: 1, assists: 0 },
+      { name: 'Derevenko', goals: 0, assists: 1 }
     ]
   },
   {
@@ -2098,19 +2179,57 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
-    teamName: 'Y A D',
-    farsiName: 'یاد',
-    goals: 17,
-    assists: 12,
-    totalPoints: 29,
+    teamName: 'feshar united / Feshar UTD',
+    farsiName: 'فشار یونایتد',
+    goals: 16,
+    assists: 14,
+    totalPoints: 30,
     players: [
-      { name: 'Parsa / ParsaMadayeni', goals: 12, assists: 1 },
-      { name: 'Mikh', goals: 4, assists: 3 },
-      { name: 'beny / Beny', goals: 0, assists: 3 },
-      { name: 'L E B R O N', goals: 0, assists: 3 },
-      { name: 'Sa1rosh', goals: 0, assists: 2 },
-      { name: 'SINA', goals: 1, assists: 0 },
-      { name: 'Dani Alves', goals: 0, assists: 1 }
+      { name: 'Zix9', goals: 11, assists: 2 },
+      { name: 'Mamadshakib / MamadShakib', goals: 2, assists: 6 },
+      { name: 'Khafandinho', goals: 1, assists: 1 },
+      { name: 'Last Dance', goals: 1, assists: 1 },
+      { name: 'Sajikboy', goals: 1, assists: 0 },
+      { name: 'Hami', goals: 0, assists: 2 },
+      { name: 'rzed', goals: 0, assists: 2 },
+      { name: 'Shayan', goals: 0, assists: 1 },
+      { name: 'Nabih', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'tape / Tape / GRAVITY',
+    farsiName: 'تیپ',
+    goals: 16,
+    assists: 11,
+    totalPoints: 27,
+    players: [
+      { name: 'rjb', goals: 5, assists: 5 },
+      { name: 'ASAp', goals: 3, assists: 1 },
+      { name: 'BELLINGHAM / Bellingham', goals: 2, assists: 3 },
+      { name: 'Dani', goals: 3, assists: 2 },
+      { name: 'CARRASCO / CARRSCO', goals: 2, assists: 1 },
+      { name: 'RICARDO', goals: 2, assists: 0 },
+      { name: 'Costa', goals: 1, assists: 0 },
+      { name: 'Masiha', goals: 0, assists: 1 },
+      { name: 'Navid', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'Baile / Ultimo Baile',
+    farsiName: 'اولتیمو بایله',
+    goals: 15,
+    assists: 12,
+    totalPoints: 27,
+    players: [
+      { name: 'Mz', goals: 10, assists: 1 },
+      { name: 'AM6', goals: 3, assists: 4 },
+      { name: '26 ta', goals: 2, assists: 6 },
+      { name: 'Harding', goals: 1, assists: 0 },
+      { name: 'masoud', goals: 1, assists: 0 },
+      { name: 'MALDINI', goals: 1, assists: 0 },
+      { name: 'KHODA', goals: 0, assists: 3 },
+      { name: 'DYD', goals: 0, assists: 1 },
+      { name: 'Inferno', goals: 0, assists: 1 }
     ]
   },
   {
@@ -2132,18 +2251,34 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
-    teamName: 'Kalasiah / kakasiah',
-    farsiName: 'کاکاسیاه',
-    goals: 12,
-    assists: 11,
+    teamName: 'chaeekhoran / Chaee khoran',
+    farsiName: 'چای خوران',
+    goals: 13,
+    assists: 12,
+    totalPoints: 25,
+    players: [
+      { name: 'Kiarash', goals: 4, assists: 6 },
+      { name: 'Sabeti / Sabetii / sabetii', goals: 6, assists: 2 },
+      { name: 'Catalan', goals: 2, assists: 0 },
+      { name: 'KONDAR', goals: 1, assists: 0 },
+      { name: 'ALIREZA', goals: 0, assists: 3 },
+      { name: 'Mehdi', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'Youngwizard / Young Wiz',
+    farsiName: 'یونگ ویزارد',
+    goals: 13,
+    assists: 10,
     totalPoints: 23,
     players: [
-      { name: 'Moosazadeh / MOOSAZADEH', goals: 5, assists: 3 },
-      { name: 'Zare', goals: 3, assists: 4 },
-      { name: 'Malmir', goals: 2, assists: 2 },
-      { name: 'Andrade', goals: 1, assists: 1 },
-      { name: '26adad', goals: 1, assists: 0 },
-      { name: 'Derevenko', goals: 0, assists: 1 }
+      { name: 'GORCC', goals: 5, assists: 4 },
+      { name: 'AmirAli', goals: 4, assists: 1 },
+      { name: 'AiMaR', goals: 0, assists: 4 },
+      { name: 'Dna33', goals: 2, assists: 0 },
+      { name: 'REZA', goals: 1, assists: 0 },
+      { name: 'Ramtin007', goals: 1, assists: 1 },
+      { name: 'Kobayashi', goals: 0, assists: 1 }
     ]
   },
   {
@@ -2163,82 +2298,72 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
-    teamName: 'feshar united / Feshar UTD',
-    farsiName: 'فشار یونایتد',
-    goals: 11,
-    assists: 10,
-    totalPoints: 21,
-    players: [
-      { name: 'Zix9', goals: 7, assists: 2 },
-      { name: 'Mamadshakib / MamadShakib', goals: 2, assists: 4 },
-      { name: 'Khafandinho', goals: 1, assists: 1 },
-      { name: 'Sajikboy', goals: 1, assists: 0 },
-      { name: 'Hami', goals: 0, assists: 2 },
-      { name: 'Shayan', goals: 0, assists: 1 },
-      { name: 'rzed', goals: 0, assists: 1 },
-      { name: 'Nabih', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'chaeekhoran / Chaee Khoran',
-    farsiName: 'چای خوران',
-    goals: 11,
-    assists: 10,
-    totalPoints: 21,
-    players: [
-      { name: 'Kiarash', goals: 4, assists: 4 },
-      { name: 'Sabeti / Sabetii', goals: 4, assists: 2 },
-      { name: 'Catalan', goals: 2, assists: 0 },
-      { name: 'KONDAR', goals: 1, assists: 0 },
-      { name: 'ALIREZA', goals: 0, assists: 3 },
-      { name: 'Mehdi', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'tape',
-    farsiName: 'تیپ',
-    goals: 11,
-    assists: 9,
+    teamName: 'Sourosh fc / SoroushFC',
+    farsiName: 'سروش اف‌سی',
+    goals: 13,
+    assists: 7,
     totalPoints: 20,
     players: [
-      { name: 'rjb', goals: 3, assists: 4 },
-      { name: 'Dani', goals: 3, assists: 2 },
-      { name: 'CARRASCO', goals: 2, assists: 0 },
-      { name: 'ASAp', goals: 1, assists: 1 },
-      { name: 'RICARDO', goals: 1, assists: 0 },
-      { name: 'Costa', goals: 1, assists: 0 },
-      { name: 'Masiha', goals: 0, assists: 1 },
-      { name: 'Navid', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'Youngwizard / Young wiz',
-    farsiName: 'یونگ ویزارد',
-    goals: 10,
-    assists: 9,
-    totalPoints: 19,
-    players: [
-      { name: 'AmirAli', goals: 4, assists: 1 },
-      { name: 'GORCC', goals: 3, assists: 4 },
-      { name: 'Dna33', goals: 2, assists: 0 },
-      { name: 'Ramtin007', goals: 1, assists: 1 },
-      { name: 'AiMaR', goals: 0, assists: 3 },
-      { name: 'Kobayashi', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'Sourosh fc / Soroush',
-    farsiName: 'سروش اف‌سی',
-    goals: 12,
-    assists: 6,
-    totalPoints: 18,
-    players: [
-      { name: 'bb radin', goals: 7, assists: 2 },
+      { name: 'bb radin', goals: 8, assists: 2 },
       { name: 'Pogba / pogba', goals: 1, assists: 1 },
       { name: 'parsa', goals: 1, assists: 0 },
       { name: 'Gheysari', goals: 1, assists: 2 },
       { name: 'Armin', goals: 1, assists: 0 },
-      { name: '1stArshia', goals: 1, assists: 1 }
+      { name: '1stArshia', goals: 1, assists: 1 },
+      { name: 'Rahimi', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'matadorir / MatadorIR',
+    farsiName: 'ماتادور',
+    goals: 8,
+    assists: 10,
+    totalPoints: 18,
+    players: [
+      { name: 'ronaldo', goals: 2, assists: 4 },
+      { name: 'Cyclone', goals: 3, assists: 2 },
+      { name: 'zzz / ZZZ', goals: 2, assists: 1 },
+      { name: 'Matador', goals: 1, assists: 0 },
+      { name: 'Parham', goals: 1, assists: 0 },
+      { name: 'LIONEL', goals: 1, assists: 1 },
+      { name: 'tng', goals: 1, assists: 1 },
+      { name: 'Naghib', goals: 0, assists: 2 }
+    ]
+  },
+  {
+    teamName: 'TehranLegacy / Tehran Legacy',
+    farsiName: 'تهران لگاسی',
+    goals: 9,
+    assists: 9,
+    totalPoints: 18,
+    players: [
+      { name: 'Mazi0611 / mazi / Mazi', goals: 3, assists: 3 },
+      { name: 'bb radin', goals: 2, assists: 0 },
+      { name: 'Re3gal weller / Re3galweller', goals: 2, assists: 0 },
+      { name: 'AHNZ88', goals: 2, assists: 0 },
+      { name: '1stArshia', goals: 0, assists: 2 },
+      { name: 'Arshia', goals: 0, assists: 2 },
+      { name: 'Artin', goals: 0, assists: 1 }
+    ]
+  },
+  {
+    teamName: 'Persianempire / PersianEmpire',
+    farsiName: 'پرشین امپایر',
+    goals: 8,
+    assists: 9,
+    totalPoints: 17,
+    players: [
+      { name: 'Ali', goals: 1, assists: 1 },
+      { name: 'mmd', goals: 1, assists: 1 },
+      { name: 'Amin', goals: 1, assists: 1 },
+      { name: 'AREF SP', goals: 1, assists: 1 },
+      { name: 'Azad', goals: 0, assists: 2 },
+      { name: 'Armin', goals: 1, assists: 0 },
+      { name: 'parsa', goals: 1, assists: 0 },
+      { name: 'sdx', goals: 1, assists: 0 },
+      { name: 'Gulit', goals: 1, assists: 0 },
+      { name: 'TireDMoz', goals: 0, assists: 1 },
+      { name: 'Kochicteam', goals: 0, assists: 1 }
     ]
   },
   {
@@ -2256,33 +2381,19 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
-    teamName: 'TehranLegacy / Tehran legacy',
-    farsiName: 'تهران لگاسی',
-    goals: 6,
+    teamName: 'persiangulf / PersianGulf',
+    farsiName: 'پرشین گلف',
+    goals: 8,
     assists: 5,
-    totalPoints: 11,
+    totalPoints: 13,
     players: [
-      { name: 'bb radin', goals: 2, assists: 0 },
-      { name: 'Mazi0611 / mazi', goals: 2, assists: 2 },
-      { name: 'Re3gal weller', goals: 1, assists: 0 },
-      { name: 'AHNZ88', goals: 1, assists: 0 },
-      { name: 'Arshia', goals: 0, assists: 2 },
-      { name: 'Artin', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'Baile',
-    farsiName: 'اولتیمو بایله',
-    goals: 6,
-    assists: 5,
-    totalPoints: 11,
-    players: [
-      { name: 'Mz', goals: 4, assists: 0 },
-      { name: 'Harding', goals: 1, assists: 0 },
-      { name: 'masoud', goals: 1, assists: 0 },
-      { name: '26 ta', goals: 0, assists: 3 },
-      { name: 'AM6', goals: 0, assists: 1 },
-      { name: 'DYD', goals: 0, assists: 1 }
+      { name: 'TireDMoz', goals: 3, assists: 1 },
+      { name: 'Bhd', goals: 2, assists: 2 },
+      { name: 'ARV1NM', goals: 2, assists: 0 },
+      { name: 'Ronaldo', goals: 1, assists: 0 },
+      { name: 'Pl / PL', goals: 1, assists: 1 },
+      { name: 'prz', goals: 0, assists: 1 },
+      { name: 'Alius', goals: 0, assists: 1 }
     ]
   },
   {
@@ -2301,6 +2412,32 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
+    teamName: 'Masshahr / Messhahr',
+    farsiName: 'ماهشهر',
+    goals: 5,
+    assists: 3,
+    totalPoints: 8,
+    players: [
+      { name: 'IWasKaveh', goals: 2, assists: 0 },
+      { name: 'Aemangg', goals: 1, assists: 0 },
+      { name: 'AmirArnold', goals: 1, assists: 0 },
+      { name: 'hunting', goals: 1, assists: 0 },
+      { name: 'babakop1', goals: 0, assists: 3 }
+    ]
+  },
+  {
+    teamName: 'Vanguard',
+    farsiName: 'وانگارد',
+    goals: 4,
+    assists: 3,
+    totalPoints: 7,
+    players: [
+      { name: 'SHAH / Shah', goals: 2, assists: 2 },
+      { name: 'MASOUD', goals: 2, assists: 0 },
+      { name: 'miga', goals: 0, assists: 1 }
+    ]
+  },
+  {
     teamName: 'Spirirts / Spirits',
     farsiName: 'اسپیریتس',
     goals: 4,
@@ -2315,78 +2452,27 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     ]
   },
   {
-    teamName: 'Persianempire / Empire',
-    farsiName: 'پرشین امپایر',
+    teamName: 'Gorgali / Gorgali Fc',
+    farsiName: 'گرگالی',
     goals: 3,
-    assists: 3,
-    totalPoints: 6,
+    assists: 2,
+    totalPoints: 5,
     players: [
-      { name: 'Armin', goals: 1, assists: 0 },
-      { name: 'parsa', goals: 1, assists: 0 },
-      { name: 'sdx', goals: 1, assists: 0 },
-      { name: 'TireDMoz', goals: 0, assists: 1 },
-      { name: 'AREF SP', goals: 0, assists: 1 },
-      { name: 'Azad', goals: 0, assists: 1 }
+      { name: 'Palmer / PALMER', goals: 2, assists: 0 },
+      { name: 'jmbb', goals: 1, assists: 0 },
+      { name: 'kaya', goals: 0, assists: 1 },
+      { name: 'Messi', goals: 0, assists: 1 }
     ]
   },
   {
-    teamName: 'Masshahr',
-    farsiName: 'ماهشهر',
-    goals: 3,
-    assists: 3,
-    totalPoints: 6,
-    players: [
-      { name: 'IWasKaveh', goals: 1, assists: 0 },
-      { name: 'Aemangg', goals: 1, assists: 0 },
-      { name: 'AmirArnold', goals: 1, assists: 0 },
-      { name: 'babakop1', goals: 0, assists: 3 }
-    ]
-  },
-  {
-    teamName: 'matadorir',
-    farsiName: 'ماتادور',
+    teamName: 'Aftafa Sazan',
+    farsiName: 'آفتابه سازان',
     goals: 2,
     assists: 2,
     totalPoints: 4,
     players: [
-      { name: 'Matador', goals: 1, assists: 0 },
-      { name: 'Parham', goals: 1, assists: 0 },
-      { name: 'Naghib', goals: 0, assists: 1 },
-      { name: 'ZZZ', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'Gorgali',
-    farsiName: 'گرگالی',
-    goals: 2,
-    assists: 1,
-    totalPoints: 3,
-    players: [
-      { name: 'PALMER', goals: 1, assists: 0 },
-      { name: 'jmbb', goals: 1, assists: 0 },
-      { name: 'kaya', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'Aftafa Sazan fc',
-    farsiName: 'آفتابه سازان اف‌سی',
-    goals: 1,
-    assists: 1,
-    totalPoints: 2,
-    players: [
-      { name: 'Javan', goals: 1, assists: 0 },
-      { name: 'felt4em', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'G R A V I T Y',
-    farsiName: 'گراویتی',
-    goals: 1,
-    assists: 1,
-    totalPoints: 2,
-    players: [
-      { name: 'ASAp', goals: 1, assists: 0 },
-      { name: 'Bellingham', goals: 0, assists: 1 }
+      { name: 'Javan', goals: 2, assists: 0 },
+      { name: 'felt4em', goals: 0, assists: 2 }
     ]
   },
   {
@@ -2409,37 +2495,6 @@ export const initialTeamPlayerStats: TeamStatsSummary[] = [
     players: [
       { name: 'Reza Radmehr', goals: 1, assists: 0 },
       { name: 'Radmehr', goals: 0, assists: 1 }
-    ]
-  },
-  {
-    teamName: 'persiangulf',
-    farsiName: 'پرشین گلف',
-    goals: 2,
-    assists: 0,
-    totalPoints: 2,
-    players: [
-      { name: 'Ronaldo', goals: 1, assists: 0 },
-      { name: 'Pl', goals: 1, assists: 0 }
-    ]
-  },
-  {
-    teamName: 'Vanguard',
-    farsiName: 'وانگارد',
-    goals: 1,
-    assists: 0,
-    totalPoints: 1,
-    players: [
-      { name: 'Shah', goals: 1, assists: 0 }
-    ]
-  },
-  {
-    teamName: 'Azabe Elahi',
-    farsiName: 'عذاب الهی',
-    goals: 1,
-    assists: 0,
-    totalPoints: 1,
-    players: [
-      { name: 'Xbio', goals: 1, assists: 0 }
     ]
   }
 ];
